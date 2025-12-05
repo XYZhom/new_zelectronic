@@ -1,4 +1,4 @@
-// script.js - исправленная версия с динамическим добавлением в избранное
+// script.js - обновленная версия с поддержкой умного хедера для мобильных
 
 // Глобальные переменные для товаров
 let allProducts = [];
@@ -21,9 +21,69 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка формы поиска
     setupSearch();
     
+    // Настройка мобильного хедера
+    setupMobileHeaderBehavior();
+    
     // Загрузка товаров
     loadAllProducts();
 });
+
+// Настройка поведения хедера на мобильных
+function setupMobileHeaderBehavior() {
+    const header = document.querySelector('.main-header');
+    if (!header) return;
+    
+    if (window.innerWidth <= 768) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        
+        function updateHeader() {
+            if (window.innerWidth <= 768) {
+                if (lastScrollY < 10) {
+                    header.style.transform = 'translateY(calc(-100% + 60px))';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+        
+        // Показываем хедер при наведении
+        header.addEventListener('mouseenter', function() {
+            if (window.innerWidth <= 768) {
+                header.style.transform = 'translateY(0)';
+            }
+        });
+        
+        // Показываем хедер при таче
+        header.addEventListener('touchstart', function() {
+            if (window.innerWidth <= 768) {
+                header.style.transform = 'translateY(0)';
+            }
+        });
+        
+        // Скрываем хедер через 3 секунды после скролла
+        let hideTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(hideTimeout);
+            if (window.innerWidth <= 768 && window.scrollY > 100) {
+                hideTimeout = setTimeout(() => {
+                    if (window.scrollY > 100) {
+                        header.style.transform = 'translateY(calc(-100% + 60px))';
+                    }
+                }, 3000);
+            }
+        });
+    }
+}
 
 // Загрузка всех товаров
 function loadAllProducts(callback) {
@@ -42,7 +102,7 @@ function loadAllProducts(callback) {
             status: "Новый",
             category: "notebooks",
             cities: ["Уссурийск", "Хабаровск", "Владивосток"],
-            specs: { ram: "8GB", color: "Черный" }
+            specs: { ram: "8GB", color: "Черный", processor: "Intel Core i3", screen: "15.6 дюймов" }
         },
         {
             id: 2,
@@ -52,7 +112,7 @@ function loadAllProducts(callback) {
             status: "Уцененный",
             category: "notebooks",
             cities: ["Уссурийск", "Находка"],
-            specs: { storage: "512GB", color: "Черный" }
+            specs: { storage: "512GB", color: "Черный", processor: "Intel Celeron", screen: "15.6 дюймов" }
         },
         {
             id: 3,
@@ -62,7 +122,7 @@ function loadAllProducts(callback) {
             status: "Почти новый",
             category: "notebooks",
             cities: ["Хабаровск", "Большой Камень"],
-            specs: { screen: "13.6'", storage: "256GB" }
+            specs: { screen: "13.6'", storage: "256GB", processor: "AMD Ryzen 5", ram: "8GB" }
         },
         {
             id: 4,
@@ -72,7 +132,7 @@ function loadAllProducts(callback) {
             status: "Почти новый",
             category: "consoles",
             cities: ["Хабаровск", "Уссурийск"],
-            specs: { storage: "1TB", model: "CUH-7208B" }
+            specs: { storage: "1TB", model: "CUH-7208B", hdmi: "2.0", wifi: "802.11ac" }
         },
         {
             id: 5,
@@ -82,7 +142,7 @@ function loadAllProducts(callback) {
             status: "Уцененный",
             category: "consoles",
             cities: ["Все города"],
-            specs: { color: "Черный", model: "Dualshock 4" }
+            specs: { color: "Черный", model: "Dualshock 4", battery: "Встроенная", connection: "Bluetooth" }
         },
         {
             id: 6,
@@ -92,7 +152,7 @@ function loadAllProducts(callback) {
             status: "Почти новый",
             category: "phones",
             cities: ["Владивосток", "Хабаровск"],
-            specs: { ram: "8GB", storage: "256GB", model: "SM-G991N" }
+            specs: { ram: "8GB", storage: "256GB", model: "SM-G991N", screen: "6.2 дюймов" }
         },
         {
             id: 7,
@@ -102,7 +162,7 @@ function loadAllProducts(callback) {
             status: "Новый",
             category: "notebooks",
             cities: ["Уссурийск"],
-            specs: { screen: "13.6'", storage: "512GB" }
+            specs: { screen: "13.6'", storage: "512GB", processor: "Intel Core i7", gpu: "NVIDIA RTX 3050" }
         },
         {
             id: 8,
@@ -112,7 +172,7 @@ function loadAllProducts(callback) {
             status: "Уцененный",
             category: "notebooks",
             cities: ["Находка", "Большой Камень"],
-            specs: { screen: "13.6'", storage: "1TB" }
+            specs: { screen: "13.6'", storage: "1TB", processor: "AMD Ryzen 3", ram: "8GB" }
         }
     ];
     
@@ -143,7 +203,8 @@ function addToCart(productId, quantity = 1) {
                 id: product.id,
                 name: product.name,
                 price: product.price,
-                quantity: quantity
+                quantity: quantity,
+                image: getProductIcon(product.category)
             });
         }
         
@@ -261,6 +322,16 @@ function setupSearch() {
                 searchButton.click();
             }
         });
+        
+        // На мобильных устройствах фокусируемся на поиске
+        if (window.innerWidth <= 768) {
+            searchInput.addEventListener('focus', () => {
+                const header = document.querySelector('.main-header');
+                if (header) {
+                    header.style.transform = 'translateY(0)';
+                }
+            });
+        }
     }
 }
 
@@ -283,6 +354,7 @@ function showNotification(message, type = 'success') {
         box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         min-width: 300px;
         max-width: 400px;
+        font-size: 14px;
     `;
     
     document.body.appendChild(notification);
@@ -319,6 +391,20 @@ style.textContent = `
         to {
             transform: translateX(100%);
             opacity: 0;
+        }
+    }
+    
+    /* Улучшение для мобильных уведомлений */
+    @media (max-width: 768px) {
+        .notification {
+            top: 10px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+            min-width: auto;
+            text-align: center;
+            font-size: 13px;
+            padding: 12px 20px;
         }
     }
 `;
@@ -407,34 +493,7 @@ function isInWishlist(productId) {
     return wishlist.includes(productId);
 }
 
-// Функция для перехода на страницу товара
+// Функция для открытия страницы товара
 function openProductPage(productId) {
     window.location.href = `product.html?id=${productId}`;
-}
-
-// Функция для получения рекомендованных товаров
-function getRecommendedProducts(currentProductId, allProducts) {
-    const currentProduct = allProducts.find(p => p.id === currentProductId);
-    if (!currentProduct) return [];
-    
-    // Товары из той же категории
-    const sameCategory = allProducts.filter(p => 
-        p.id !== currentProductId && 
-        p.category === currentProduct.category
-    );
-    
-    // Смешиваем с другими популярными товарами
-    const recommendations = [...sameCategory];
-    
-    // Если мало товаров из той же категории, добавляем другие
-    if (recommendations.length < 4) {
-        const otherProducts = allProducts
-            .filter(p => p.id !== currentProductId && 
-                       !recommendations.includes(p))
-            .slice(0, 4 - recommendations.length);
-        
-        recommendations.push(...otherProducts);
-    }
-    
-    return recommendations.slice(0, 4);
 }
