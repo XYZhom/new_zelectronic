@@ -10,63 +10,70 @@
 <body>
     <!-- Header -->
     <header class="main-header">
-        <div class="top-bar">
-            <div class="container top-bar-content">
-                <div class="contact-info">
-                    <a href="tel:+79089998877" class="phone-number">
-                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
-                    </a>
-                    <span class="working-hours">
-                        <i class="far fa-clock"></i> 10:00 – 20:00
-                    </span>
-                </div>
-                <div class="top-links">
-                    <a href="city-selector.html" class="city-link">
-                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
-                    </a>
-                    <a href="catalog.html" class="nav-link">
-                        <i class="fas fa-list"></i> Каталог
-                    </a>
-                    <a href="contacts.html" class="nav-link">
-                        <i class="fas fa-address-book"></i> Контакты
-                    </a>
-                    <a href="vacancies.html" class="nav-link">
-                        <i class="fas fa-briefcase"></i> Вакансии
-                    </a>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <a href="tel:+79089998877" class="phone-number">
+                    <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                </a>
+                <span class="working-hours">
+                    <i class="far fa-clock"></i> 10:00 – 20:00
+                </span>
+            </div>
+            <div class="top-links">
+                <a href="city-selector.html" class="city-link">
+                    <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                </a>
+                <a href="catalog.html" class="nav-link">
+                    <i class="fas fa-list"></i> Каталог
+                </a>
+                <a href="contacts.html" class="nav-link">
+                    <i class="fas fa-address-book"></i> Контакты
+                </a>
+                <a href="vacancies.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Вакансии
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span>Z</span>ELECTRONIC
+            </a>
+            
+            <!-- Добавленная кнопка мобильного меню -->
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="user-actions">
+                <a href="sell.html" class="sell-btn">
+                    <i class="fas fa-tag"></i> Продать нам
+                </a>
+                <a href="favorites.html" class="nav-link">
+                    <i class="far fa-heart"></i> <span class="favorites-count">0</span>
+                </a>
+                <a href="checkout.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span>
+                </a>
+            </div>
+            
+            <div class="header-search">
+                <div class="search-bar">
+                    <input type="text" placeholder="Искать в магазине..." id="search-input">
+                    <button type="button" id="search-button">
+                        <i class="fas fa-search"></i> Найти
+                    </button>
                 </div>
             </div>
         </div>
         
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <span>Z</span>ELECTRONIC
-                </a>
-                
-                <div class="header-search">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Искать в магазине..." id="search-input">
-                        <button type="button" id="search-button">
-                            <i class="fas fa-search"></i> Найти
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="user-actions">
-                    <a href="sell.html" class="sell-btn">
-                        <i class="fas fa-tag"></i> Продать нам
-                    </a>
-                    <a href="favorites.html" class="nav-link">
-                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
-                    </a>
-                    <a href="checkout.html" class="nav-link">
-                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
-                    </a>
-                </div>
-            </div>
-            
+        <!-- Обновленная навигация с классом main-navigation -->
+        <nav class="main-navigation">
             <div class="nav-links">
-                <a href="index.html" class="nav-link">
+                <a href="index.html" class="nav-link active">
                     <i class="fas fa-home"></i> Главная
                 </a>
                 <a href="catalog.html?category=notebooks" class="nav-link">
@@ -88,8 +95,9 @@
                     <i class="fas fa-keyboard"></i> Аксессуары
                 </a>
             </div>
-        </div>
-    </header>
+        </nav>
+    </div>
+</header>
 
     <!-- Main Content -->
     <main class="main-content">
