@@ -1,4 +1,4 @@
-// script.js - обновленная версия с поддержкой умного хедера для мобильных
+// script.js - обновленная версия с мобильным меню
 
 // Глобальные переменные для товаров
 let allProducts = [];
@@ -21,65 +21,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка формы поиска
     setupSearch();
     
-    // Настройка мобильного хедера
-    setupMobileHeaderBehavior();
+    // Настройка мобильного меню
+    setupMobileMenu();
     
     // Загрузка товаров
     loadAllProducts();
 });
 
-// Настройка поведения хедера на мобильных
-function setupMobileHeaderBehavior() {
-    const header = document.querySelector('.main-header');
-    if (!header) return;
+// Настройка мобильного меню
+function setupMobileMenu() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-navigation');
     
-    if (window.innerWidth <= 768) {
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-        
-        function updateHeader() {
-            if (window.innerWidth <= 768) {
-                if (lastScrollY < 10) {
-                    header.style.transform = 'translateY(calc(-100% + 60px))';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-            ticking = false;
-        }
-        
-        window.addEventListener('scroll', function() {
-            lastScrollY = window.scrollY;
-            if (!ticking) {
-                window.requestAnimationFrame(updateHeader);
-                ticking = true;
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
+            } else {
+                icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
             }
         });
         
-        // Показываем хедер при наведении
-        header.addEventListener('mouseenter', function() {
-            if (window.innerWidth <= 768) {
-                header.style.transform = 'translateY(0)';
-            }
+        // Закрытие меню при клике на ссылку
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                document.querySelector('.mobile-menu-toggle i').className = 'fas fa-bars';
+                document.body.style.overflow = '';
+            });
         });
         
-        // Показываем хедер при таче
-        header.addEventListener('touchstart', function() {
-            if (window.innerWidth <= 768) {
-                header.style.transform = 'translateY(0)';
-            }
-        });
-        
-        // Скрываем хедер через 3 секунды после скролла
-        let hideTimeout;
-        window.addEventListener('scroll', function() {
-            clearTimeout(hideTimeout);
-            if (window.innerWidth <= 768 && window.scrollY > 100) {
-                hideTimeout = setTimeout(() => {
-                    if (window.scrollY > 100) {
-                        header.style.transform = 'translateY(calc(-100% + 60px))';
-                    }
-                }, 3000);
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(event) {
+            if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                mainNav.classList.remove('active');
+                document.querySelector('.mobile-menu-toggle i').className = 'fas fa-bars';
+                document.body.style.overflow = '';
             }
         });
     }
@@ -322,16 +304,6 @@ function setupSearch() {
                 searchButton.click();
             }
         });
-        
-        // На мобильных устройствах фокусируемся на поиске
-        if (window.innerWidth <= 768) {
-            searchInput.addEventListener('focus', () => {
-                const header = document.querySelector('.main-header');
-                if (header) {
-                    header.style.transform = 'translateY(0)';
-                }
-            });
-        }
     }
 }
 
