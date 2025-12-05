@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZELECTRONIC - Комиссионная сеть проверенной техники</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79089998877" class="phone-number">
+                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                    </a>
+                    <span class="working-hours">
+                        <i class="far fa-clock"></i> 10:00 – 20:00
+                    </span>
+                </div>
+                <div class="top-links">
+                    <a href="city-selector.html" class="city-link">
+                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                    </a>
+                    <a href="catalog.html" class="nav-link">
+                        <i class="fas fa-list"></i> Каталог
+                    </a>
+                    <a href="contacts.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Контакты
+                    </a>
+                    <a href="vacancies.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Вакансии
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>Z</span>ELECTRONIC
+                </a>
+                
+                <div class="header-search">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Искать в магазине..." id="search-input">
+                        <button type="button" id="search-button">
+                            <i class="fas fa-search"></i> Найти
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="sell.html" class="sell-btn">
+                        <i class="fas fa-tag"></i> Продать нам
+                    </a>
+                    <a href="favorites.html" class="nav-link">
+                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="catalog.html?category=notebooks" class="nav-link">
+                    <i class="fas fa-laptop"></i> Ноутбуки
+                </a>
+                <a href="catalog.html?category=phones" class="nav-link">
+                    <i class="fas fa-mobile-alt"></i> Смартфоны
+                </a>
+                <a href="catalog.html?category=consoles" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Игры и приставки
+                </a>
+                <a href="catalog.html?category=appliances" class="nav-link">
+                    <i class="fas fa-tv"></i> Бытовая техника
+                </a>
+                <a href="catalog.html?category=audio" class="nav-link">
+                    <i class="fas fa-headphones"></i> Аудиотехника
+                </a>
+                <a href="catalog.html?category=accessories" class="nav-link">
+                    <i class="fas fa-keyboard"></i> Аксессуары
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>ZELECTRONIC - проверенная техника</h1>
+            <p>Приморская сеть магазинов проверенной техники трех статусов: новый, почти новый, уцененный</p>
+            <a href="catalog.html" class="buy-btn" style="max-width: 200px; margin: 0 auto; display: inline-block;">
+                Смотреть каталог
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Лента поступлений</h2>
+            
+            <div class="products-grid" id="featured-products">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+            
+            <div class="loading-spinner" id="loading-products" style="display: none;">
+                <div class="spinner"></div>
+                <p>Загрузка товаров...</p>
+            </div>
+            
+            <div id="no-products" style="text-align: center; padding: 40px; display: none;">
+                <i class="fas fa-search fa-2x" style="color: #ccc; margin-bottom: 20px;"></i>
+                <h3>Товары не найдены</h3>
+                <p>Попробуйте изменить параметры фильтрации</p>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="catalog.html" class="buy-btn" style="max-width: 300px; display: inline-block;">
+                    Показать ещё
+                </a>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <section class="container">
+            <h2 class="section-title">Категории товаров</h2>
+            
+            <div class="categories-grid">
+                <a href="catalog.html?category=notebooks" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Ноутбуки</h3>
+                    <p>Компьютеры и ноутбуки</p>
+                </a>
+                
+                <a href="catalog.html?category=phones" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Смартфоны</h3>
+                    <p>Телефоны и планшеты</p>
+                </a>
+                
+                <a href="catalog.html?category=consoles" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Игры и приставки</h3>
+                    <p>Игровые консоли и аксессуары</p>
+                </a>
+                
+                <a href="catalog.html?category=appliances" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Бытовая техника</h3>
+                    <p>Телевизоры и техника для дома</p>
+                </a>
+                
+                <a href="catalog.html?category=audio" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Аудиотехника</h3>
+                    <p>Наушники и колонки</p>
+                </a>
+                
+                <a href="catalog.html?category=accessories" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Аксессуары</h3>
+                    <p>Комплектующие и периферия</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZELECTRONIC</h3>
+                <p>Комиссионная сеть проверенной техники. Мы отвечаем за то, что продаём!</p>
+                <div class="contact-info-footer">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (908) 999-88-77</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>10:00 – 20:00</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>team@zelectronic.ru</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/zelectronic_ussuriysk" class="social-icon" title="Наш Telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/79089998877" class="social-icon" title="Наш WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Каталог</h3>
+                <ul class="footer-links">
+                    <li><a href="catalog.html?category=notebooks">Ноутбуки и компьютеры</a></li>
+                    <li><a href="catalog.html?category=phones">Смартфоны и планшеты</a></li>
+                    <li><a href="catalog.html?category=consoles">Игры и приставки</a></li>
+                    <li><a href="catalog.html?category=appliances">Бытовая техника</a></li>
+                    <li><a href="catalog.html?category=audio">Аудиотехника</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Клиентам</h3>
+                <ul class="footer-links">
+                    <li><a href="actions.html">Акции</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="payment.html">Способы оплаты</a></li>
+                    <li><a href="warranty.html">Гарантия</a></li>
+                    <li><a href="sell.html">Продать технику</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Компания</h3>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; color: #bbb; font-size: 0.9em;">
+                ИП Власенко Антон Александрович, ИНН 251115679290, ОГРНИП 316251100053169,<br>
+                г.Уссурийск, ул. Некрасова д.79, ZELECTRONIC, Тел. +79089998877
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Загрузка товаров на главной
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFeaturedProducts();
+            updateCartCount();
+            updateFavoritesCount();
+            setupSearch();
+            
+            // Загрузка выбранного города
+            const selectedCity = localStorage.getItem('selectedCity') || 'Все города';
+            document.querySelectorAll('.current-city').forEach(el => {
+                el.textContent = selectedCity;
+            });
+        });
+        
+        function loadFeaturedProducts() {
+            const loadingEl = document.getElementById('loading-products');
+            const productsContainer = document.getElementById('featured-products');
+            const noProductsEl = document.getElementById('no-products');
+            
+            loadingEl.style.display = 'block';
+            productsContainer.innerHTML = '';
+            
+            setTimeout(() => {
+                // Загрузка товаров
+                loadAllProducts(function(products) {
+                    const featuredProducts = products.slice(0, 6); // Показываем 6 товаров
+                    
+                    loadingEl.style.display = 'none';
+                    
+                    if (featuredProducts.length === 0) {
+                        noProductsEl.style.display = 'block';
+                        return;
+                    }
+                    
+                    noProductsEl.style.display = 'none';
+                    
+                    featuredProducts.forEach(product => {
+                        const productCard = document.createElement('div');
+                        productCard.className = 'product-card';
+                        
+                        let statusClass = 'status-new';
+                        if (product.status === 'Уцененный') statusClass = 'status-used';
+                        if (product.status === 'Почти новый') statusClass = 'status-refurbished';
+                        
+                        // Проверяем, есть ли товар в избранном
+                        const wishlist = JSON.parse(localStorage.getItem('zelectronicWishlist') || '[]');
+                        const isInWishlist = wishlist.includes(product.id);
+                        
+                        productCard.innerHTML = `
+                            <div class="product-image">
+                                <i class="fas fa-${getProductIcon(product.category)}"></i>
+                            </div>
+                            <div class="product-info">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <span class="product-status ${statusClass}">${product.status}</span>
+                                    <button onclick="toggleWishlist(${product.id}, this)" style="background: none; border: none; cursor: pointer; color: ${isInWishlist ? '#e74c3c' : '#ccc'}; font-size: 20px;">
+                                        <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i>
+                                    </button>
+                                </div>
+                                <h3 class="product-title" onclick="window.location.href='product.html?id=${product.id}'" style="cursor: pointer; color: var(--primary-color);">
+                                    ${product.name}
+                                </h3>
+                                <p class="product-description">${product.description}</p>
+                                <div class="product-cities">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    ${product.cities.join(', ')}
+                                </div>
+                                <div class="product-price">${product.price.toLocaleString()} ₽</div>
+                                <button class="buy-btn" onclick="addToCart(${product.id})">
+                                    <i class="fas fa-shopping-cart"></i> Купить
+                                </button>
+                            </div>
+                        `;
+                        
+                        productsContainer.appendChild(productCard);
+                    });
+                });
+            }, 500); // Имитация загрузки
+        }
+        
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            if (searchButton && searchInput) {
+                searchButton.addEventListener('click', () => {
+                    const searchTerm = searchInput.value.trim();
+                    if (searchTerm) {
+                        window.location.href = `catalog.html?search=${encodeURIComponent(searchTerm)}`;
+                    }
+                });
+                
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        searchButton.click();
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

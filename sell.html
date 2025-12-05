@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продать технику - ZELECTRONIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79089998877" class="phone-number">
+                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                    </a>
+                    <span class="working-hours">
+                        <i class="far fa-clock"></i> 10:00 – 20:00
+                    </span>
+                </div>
+                <div class="top-links">
+                    <a href="city-selector.html" class="city-link">
+                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                    </a>
+                    <a href="catalog.html" class="nav-link">
+                        <i class="fas fa-list"></i> Каталог
+                    </a>
+                    <a href="contacts.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Контакты
+                    </a>
+                    <a href="vacancies.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Вакансии
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>Z</span>ELECTRONIC
+                </a>
+                
+                <div class="header-search">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Искать в магазине..." id="search-input">
+                        <button type="button" id="search-button">
+                            <i class="fas fa-search"></i> Найти
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="sell.html" class="sell-btn">
+                        <i class="fas fa-tag"></i> Продать нам
+                    </a>
+                    <a href="favorites.html" class="nav-link">
+                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="catalog.html?category=notebooks" class="nav-link">
+                    <i class="fas fa-laptop"></i> Ноутбуки
+                </a>
+                <a href="catalog.html?category=phones" class="nav-link">
+                    <i class="fas fa-mobile-alt"></i> Смартфоны
+                </a>
+                <a href="catalog.html?category=consoles" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Игры и приставки
+                </a>
+                <a href="catalog.html?category=appliances" class="nav-link">
+                    <i class="fas fa-tv"></i> Бытовая техника
+                </a>
+                <a href="catalog.html?category=audio" class="nav-link">
+                    <i class="fas fa-headphones"></i> Аудиотехника
+                </a>
+                <a href="catalog.html?category=accessories" class="nav-link">
+                    <i class="fas fa-keyboard"></i> Аксессуары
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Главная</a> / <span>Продать технику</span>
+            </div>
+            
+            <h1 class="section-title">Продать технику</h1>
+            
+            <div class="contact-info-card" style="text-align: center;">
+                <i class="fas fa-tag fa-3x" style="color: var(--secondary-color); margin-bottom: 20px;"></i>
+                <h2>Выкупим вашу технику дорого!</h2>
+                <p>Оставьте свой номер телефона и мы свяжемся с Вами для уточнения всех деталей или позвоните нам на номер <a href="tel:+79089998877" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">+7 (908) 999-88-77</a></p>
+            </div>
+            
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="sell-phone">Ваш телефон *</label>
+                    <input type="tel" id="sell-phone" placeholder="Например: +7 (915) 444-00-36" required>
+                    <small style="color: #666; font-size: 0.9em;">Наш менеджер свяжется с вами в течение 15 минут</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-name">Ваше имя</label>
+                    <input type="text" id="sell-name" placeholder="Имя">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-category">Категория техники *</label>
+                    <select id="sell-category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="notebook">Ноутбук</option>
+                        <option value="phone">Смартфон</option>
+                        <option value="tablet">Планшет</option>
+                        <option value="console">Игровая приставка</option>
+                        <option value="tv">Телевизор</option>
+                        <option value="appliance">Бытовая техника</option>
+                        <option value="audio">Аудиотехника</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-brand">Бренд</label>
+                    <input type="text" id="sell-brand" placeholder="Например: Apple, Samsung, Sony">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-model">Модель</label>
+                    <input type="text" id="sell-model" placeholder="Модель устройства">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-condition">Состояние *</label>
+                    <select id="sell-condition" required>
+                        <option value="">Выберите состояние</option>
+                        <option value="new">Новый (в упаковке)</option>
+                        <option value="like_new">Как новый</option>
+                        <option value="good">Хорошее</option>
+                        <option value="satisfactory">Удовлетворительное</option>
+                        <option value="broken">Не работает / На запчасти</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-description">Описание и особенности</label>
+                    <textarea id="sell-description" rows="4" placeholder="Опишите вашу технику, укажите год выпуска, комплектацию, дефекты (если есть)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-price">Желаемая цена (₽)</label>
+                    <input type="number" id="sell-price" placeholder="Например: 15000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sell-photos">Фотографии техники</label>
+                    <div style="border: 2px dashed #ddd; padding: 30px; text-align: center; border-radius: var(--border-radius);">
+                        <i class="fas fa-camera fa-2x" style="color: #ccc; margin-bottom: 15px;"></i>
+                        <p style="color: #666; margin-bottom: 15px;">Перетащите сюда фото или</p>
+                        <button type="button" onclick="document.getElementById('file-input').click()" style="background: #f8f9fa; border: 1px solid #ddd; padding: 10px 20px; border-radius: var(--border-radius); cursor: pointer;">
+                            Выбрать файлы
+                        </button>
+                        <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                        <p style="color: #999; font-size: 0.9em; margin-top: 15px;">Максимум 5 файлов, до 10 МБ каждый</p>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin: 20px 0;">
+                    <input type="checkbox" id="sell-agreement" required>
+                    <label for="sell-agreement" style="display: inline; font-size: 0.9em;">
+                        Нажимая кнопку "Отправить" Вы подтверждаете своё согласие на обработку персональных данных
+                    </label>
+                </div>
+                
+                <button type="button" class="submit-btn" onclick="submitSellForm()">
+                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                </button>
+                
+                <div id="sell-success" class="success-message" style="display: none;">
+                    Заявка успешно отправлена! Наш менеджер свяжется с вами в течение 15 минут.
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: var(--border-radius);">
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">Как мы работаем:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="text-align: center;">
+                        <div style="background: var(--secondary-color); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto 15px; font-weight: bold;">1</div>
+                        <h4>Заявка</h4>
+                        <p>Оставьте заявку на сайте или позвоните нам</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: var(--secondary-color); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto 15px; font-weight: bold;">2</div>
+                        <h4>Оценка</h4>
+                        <p>Наш специалист оценит технику и назовет цену</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: var(--secondary-color); color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; margin: 0 auto 15px; font-weight: bold;">3</div>
+                        <h4>Деньги</h4>
+                        <p>Получите деньги удобным для вас способом</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZELECTRONIC</h3>
+                <p>Комиссионная сеть проверенной техники. Мы отвечаем за то, что продаём!</p>
+                <div class="contact-info-footer">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (908) 999-88-77</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>10:00 – 20:00</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>team@zelectronic.ru</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/zelectronic_ussuriysk" class="social-icon" title="Наш Telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/79089998877" class="social-icon" title="Наш WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Каталог</h3>
+                <ul class="footer-links">
+                    <li><a href="catalog.html?category=notebooks">Ноутбуки и компьютеры</a></li>
+                    <li><a href="catalog.html?category=phones">Смартфоны и планшеты</a></li>
+                    <li><a href="catalog.html?category=consoles">Игры и приставки</a></li>
+                    <li><a href="catalog.html?category=appliances">Бытовая техника</a></li>
+                    <li><a href="catalog.html?category=audio">Аудиотехника</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Клиентам</h3>
+                <ul class="footer-links">
+                    <li><a href="actions.html">Акции</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="payment.html">Способы оплаты</a></li>
+                    <li><a href="warranty.html">Гарантия</a></li>
+                    <li><a href="sell.html">Продать технику</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Компания</h3>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; color: #bbb; font-size: 0.9em;">
+                ИП Власенко Антон Александрович, ИНН 251115679290, ОГРНИП 316251100053169,<br>
+                г.Уссурийск, ул. Некрасова д.79, ZELECTRONIC, Тел. +79089998877
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateFavoritesCount();
+            loadSelectedCity();
+            setupSearch();
+        });
+        
+        function submitSellForm() {
+            const phone = document.getElementById('sell-phone').value;
+            const category = document.getElementById('sell-category').value;
+            const condition = document.getElementById('sell-condition').value;
+            const agreement = document.getElementById('sell-agreement').checked;
+            
+            if (!phone || !category || !condition || !agreement) {
+                showNotification('Пожалуйста, заполните все обязательные поля', 'error');
+                return;
+            }
+            
+            // Имитация отправки формы
+            document.getElementById('sell-success').style.display = 'block';
+            
+            // Очищаем форму
+            document.getElementById('sell-phone').value = '';
+            document.getElementById('sell-name').value = '';
+            document.getElementById('sell-category').value = '';
+            document.getElementById('sell-brand').value = '';
+            document.getElementById('sell-model').value = '';
+            document.getElementById('sell-condition').value = '';
+            document.getElementById('sell-description').value = '';
+            document.getElementById('sell-price').value = '';
+            document.getElementById('sell-agreement').checked = false;
+            
+            // Прячем сообщение через 5 секунд
+            setTimeout(() => {
+                document.getElementById('sell-success').style.display = 'none';
+            }, 5000);
+            
+            showNotification('Заявка отправлена! Наш менеджер свяжется с вами в течение 15 минут.');
+        }
+    </script>
+</body>
+</html>

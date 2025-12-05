@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - ZELECTRONIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79089998877" class="phone-number">
+                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                    </a>
+                    <span class="working-hours">
+                        <i class="far fa-clock"></i> 10:00 – 20:00
+                    </span>
+                </div>
+                <div class="top-links">
+                    <a href="city-selector.html" class="city-link">
+                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                    </a>
+                    <a href="catalog.html" class="nav-link">
+                        <i class="fas fa-list"></i> Каталог
+                    </a>
+                    <a href="contacts.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Контакты
+                    </a>
+                    <a href="vacancies.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Вакансии
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>Z</span>ELECTRONIC
+                </a>
+                
+                <div class="header-search">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Искать в магазине..." id="search-input">
+                        <button type="button" id="search-button">
+                            <i class="fas fa-search"></i> Найти
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="sell.html" class="sell-btn">
+                        <i class="fas fa-tag"></i> Продать нам
+                    </a>
+                    <a href="favorites.html" class="nav-link">
+                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="catalog.html?category=notebooks" class="nav-link">
+                    <i class="fas fa-laptop"></i> Ноутбуки
+                </a>
+                <a href="catalog.html?category=phones" class="nav-link">
+                    <i class="fas fa-mobile-alt"></i> Смартфоны
+                </a>
+                <a href="catalog.html?category=consoles" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Игры и приставки
+                </a>
+                <a href="catalog.html?category=appliances" class="nav-link">
+                    <i class="fas fa-tv"></i> Бытовая техника
+                </a>
+                <a href="catalog.html?category=audio" class="nav-link">
+                    <i class="fas fa-headphones"></i> Аудиотехника
+                </a>
+                <a href="catalog.html?category=accessories" class="nav-link">
+                    <i class="fas fa-keyboard"></i> Аксессуары
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Главная</a> / <span>Отзывы</span>
+            </div>
+            
+            <h1 class="section-title">Отзывы наших клиентов</h1>
+            
+            <div class="contact-info-card">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <i class="fas fa-comments fa-3x" style="color: var(--secondary-color); margin-bottom: 20px;"></i>
+                    <h2>Мнение наших клиентов важно для нас</h2>
+                    <p>Мы ценим каждого клиента и стараемся сделать ваши покупки максимально комфортными.</p>
+                </div>
+                
+                <!-- Форма для отзыва -->
+                <div style="margin: 40px 0;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Оставьте свой отзыв</h3>
+                    
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label for="review-name">Ваше имя *</label>
+                            <input type="text" id="review-name" placeholder="Введите ваше имя" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="review-city">Город</label>
+                            <input type="text" id="review-city" placeholder="Ваш город">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="review-product">Что покупали?</label>
+                            <input type="text" id="review-product" placeholder="Например: Ноутбук Acer">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="review-rating">Оценка *</label>
+                            <div id="rating-stars" style="display: flex; gap: 5px; margin: 10px 0;">
+                                <i class="far fa-star" style="font-size: 24px; color: #ddd; cursor: pointer;" data-rating="1"></i>
+                                <i class="far fa-star" style="font-size: 24px; color: #ddd; cursor: pointer;" data-rating="2"></i>
+                                <i class="far fa-star" style="font-size: 24px; color: #ddd; cursor: pointer;" data-rating="3"></i>
+                                <i class="far fa-star" style="font-size: 24px; color: #ddd; cursor: pointer;" data-rating="4"></i>
+                                <i class="far fa-star" style="font-size: 24px; color: #ddd; cursor: pointer;" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="review-rating" value="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="review-text">Текст отзыва *</label>
+                            <textarea id="review-text" rows="5" placeholder="Поделитесь вашим мнением о покупке" required></textarea>
+                        </div>
+                        
+                        <div class="form-group" style="margin: 20px 0;">
+                            <input type="checkbox" id="review-agreement" required>
+                            <label for="review-agreement" style="display: inline; font-size: 0.9em;">
+                                Я согласен на публикацию отзыва на сайте
+                            </label>
+                        </div>
+                        
+                        <button type="button" class="submit-btn" onclick="submitReview()">
+                            <i class="fas fa-paper-plane"></i> Отправить отзыв
+                        </button>
+                        
+                        <div id="review-success" class="success-message" style="display: none;">
+                            Спасибо за ваш отзыв! После модерации он появится на сайте.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзывы клиентов -->
+                <div style="margin: 40px 0;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Отзывы покупателей</h3>
+                    
+                    <div class="reviews-list">
+                        <div style="background: white; border-radius: var(--border-radius); padding: 25px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px; color: var(--primary-color);">Анна Сергеева</h4>
+                                    <p style="color: #666; font-size: 0.9em;">Уссурийск • Ноутбук HP</p>
+                                </div>
+                                <div style="color: #f39c12;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p style="color: #666;">Купила ноутбук HP в отличном состоянии. Работает уже полгода без нареканий. Персонал вежливый, все объяснили, помогли с выбором. Цена намного ниже, чем на новый. Рекомендую!</p>
+                            <p style="color: #999; font-size: 0.9em; margin-top: 15px;">02 декабря 2024</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 25px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px; color: var(--primary-color);">Дмитрий Иванов</h4>
+                                    <p style="color: #666; font-size: 0.9em;">Хабаровск • Playstation 4 Pro</p>
+                                </div>
+                                <div style="color: #f39c12;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <p style="color: #666;">Приставка как новая, все работает отлично. Сэкономил около 10 тысяч по сравнению с новой. Доставка быстрая, курьер приехал в удобное время. Единственное - не было одной игры в комплекте, но это мелочь.</p>
+                            <p style="color: #999; font-size: 0.9em; margin-top: 15px;">25 ноября 2024</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 25px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px; color: var(--primary-color);">Ольга Петрова</h4>
+                                    <p style="color: #666; font-size: 0.9em;">Владивосток • Смартфон Samsung</p>
+                                </div>
+                                <div style="color: #f39c12;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <p style="color: #666;">Покупала Samsung S21. Телефон в идеальном состоянии, батарея держит хорошо. Персонал магазина очень помог с выбором, показали несколько вариантов. Минус - долго ждала доставку (3 дня), но это из-за моей удаленности от центра.</p>
+                            <p style="color: #999; font-size: 0.9em; margin-top: 15px;">18 ноября 2024</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 25px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px; color: var(--primary-color);">Михаил Козлов</h4>
+                                    <p style="color: #666; font-size: 0.9em;">Находка • Продажа ноутбука</p>
+                                </div>
+                                <div style="color: #f39c12;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p style="color: #666;">Продал свой старый ноутбук в ZELECTRONIC. Оценка была честной, деньги выплатили сразу. Не пришлось самому искать покупателя и торговаться. Очень удобный сервис, буду рекомендовать друзьям!</p>
+                            <p style="color: #999; font-size: 0.9em; margin-top: 15px;">10 ноября 2024</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px; color: var(--primary-color);">Екатерина Смирнова</h4>
+                                    <p style="color: #666; font-size: 0.9em;">Большой Камень • Телевизор</p>
+                                </div>
+                                <div style="color: #f39c12;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p style="color: #666;">Купила телевизор с доставкой в Большой Камень. Привезли вовремя, установили, все показали. Телевизор работает прекрасно, экономия составила почти 40% от новой цены. Спасибо за качественный сервис!</p>
+                            <p style="color: #999; font-size: 0.9em; margin-top: 15px;">03 ноября 2024</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Статистика -->
+                <div style="margin: 40px 0;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Наша репутация</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-size: 36px; color: var(--secondary-color); font-weight: bold;">4.8</div>
+                            <div style="color: #f39c12; margin: 10px 0;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p style="color: #666;">Средняя оценка</p>
+                        </div>
+                        
+                        <div>
+                            <div style="font-size: 36px; color: var(--secondary-color); font-weight: bold;">1247</div>
+                            <p style="color: #666;">Довольных клиентов</p>
+                        </div>
+                        
+                        <div>
+                            <div style="font-size: 36px; color: var(--secondary-color); font-weight: bold;">96%</div>
+                            <p style="color: #666;">Положительных отзывов</p>
+                        </div>
+                        
+                        <div>
+                            <div style="font-size: 36px; color: var(--secondary-color); font-weight: bold;">5</div>
+                            <p style="color: #666;">Городов присутствия</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZELECTRONIC</h3>
+                <p>Комиссионная сеть проверенной техники. Мы отвечаем за то, что продаём!</p>
+                <div class="contact-info-footer">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (908) 999-88-77</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>10:00 – 20:00</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>team@zelectronic.ru</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/zelectronic_ussuriysk" class="social-icon" title="Наш Telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/79089998877" class="social-icon" title="Наш WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Каталог</h3>
+                <ul class="footer-links">
+                    <li><a href="catalog.html?category=notebooks">Ноутбуки и компьютеры</a></li>
+                    <li><a href="catalog.html?category=phones">Смартфоны и планшеты</a></li>
+                    <li><a href="catalog.html?category=consoles">Игры и приставки</a></li>
+                    <li><a href="catalog.html?category=appliances">Бытовая техника</a></li>
+                    <li><a href="catalog.html?category=audio">Аудиотехника</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Клиентам</h3>
+                <ul class="footer-links">
+                    <li><a href="actions.html">Акции</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="payment.html">Способы оплаты</a></li>
+                    <li><a href="warranty.html">Гарантия</a></li>
+                    <li><a href="sell.html">Продать технику</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Компания</h3>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; color: #bbb; font-size: 0.9em;">
+                ИП Власенко Антон Александрович, ИНН 251115679290, ОГРНИП 316251100053169,<br>
+                г.Уссурийск, ул. Некрасова д.79, ZELECTRONIC, Тел. +79089998877
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateFavoritesCount();
+            loadSelectedCity();
+            setupSearch();
+            setupRatingStars();
+        });
+        
+        function setupRatingStars() {
+            const stars = document.querySelectorAll('#rating-stars i');
+            const ratingInput = document.getElementById('review-rating');
+            
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    ratingInput.value = rating;
+                    
+                    // Обновляем отображение звезд
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.className = 'fas fa-star';
+                            s.style.color = '#f39c12';
+                        } else {
+                            s.className = 'far fa-star';
+                            s.style.color = '#ddd';
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseover', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.style.color = '#f39c12';
+                        } else {
+                            s.style.color = '#ddd';
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseout', function() {
+                    const currentRating = parseInt(ratingInput.value);
+                    
+                    stars.forEach((s, index) => {
+                        if (index < currentRating) {
+                            s.style.color = '#f39c12';
+                        } else {
+                            s.style.color = '#ddd';
+                        }
+                    });
+                });
+            });
+        }
+        
+        function submitReview() {
+            const name = document.getElementById('review-name').value;
+            const rating = document.getElementById('review-rating').value;
+            const text = document.getElementById('review-text').value;
+            const agreement = document.getElementById('review-agreement').checked;
+            
+            if (!name || !rating || rating === '0' || !text || !agreement) {
+                showNotification('Пожалуйста, заполните все обязательные поля', 'error');
+                return;
+            }
+            
+            // В реальном приложении здесь была бы отправка на сервер
+            document.getElementById('review-success').style.display = 'block';
+            
+            // Очищаем форму
+            document.getElementById('review-name').value = '';
+            document.getElementById('review-city').value = '';
+            document.getElementById('review-product').value = '';
+            document.getElementById('review-rating').value = '0';
+            document.getElementById('review-text').value = '';
+            document.getElementById('review-agreement').checked = false;
+            
+            // Сбрасываем звезды
+            const stars = document.querySelectorAll('#rating-stars i');
+            stars.forEach(star => {
+                star.className = 'far fa-star';
+                star.style.color = '#ddd';
+            });
+            
+            // Прячем сообщение через 5 секунд
+            setTimeout(() => {
+                document.getElementById('review-success').style.display = 'none';
+            }, 5000);
+            
+            showNotification('Спасибо за ваш отзыв! После модерации он появится на сайте.');
+        }
+    </script>
+</body>
+</html>

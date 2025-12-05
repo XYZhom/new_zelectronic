@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - ZELECTRONIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79089998877" class="phone-number">
+                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                    </a>
+                    <span class="working-hours">
+                        <i class="far fa-clock"></i> 10:00 – 20:00
+                    </span>
+                </div>
+                <div class="top-links">
+                    <a href="city-selector.html" class="city-link">
+                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                    </a>
+                    <a href="catalog.html" class="nav-link">
+                        <i class="fas fa-list"></i> Каталог
+                    </a>
+                    <a href="contacts.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Контакты
+                    </a>
+                    <a href="vacancies.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Вакансии
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>Z</span>ELECTRONIC
+                </a>
+                
+                <div class="header-search">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Искать в магазине..." id="search-input">
+                        <button type="button" id="search-button">
+                            <i class="fas fa-search"></i> Найти
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="sell.html" class="sell-btn">
+                        <i class="fas fa-tag"></i> Продать нам
+                    </a>
+                    <a href="favorites.html" class="nav-link">
+                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="catalog.html?category=notebooks" class="nav-link">
+                    <i class="fas fa-laptop"></i> Ноутбуки
+                </a>
+                <a href="catalog.html?category=phones" class="nav-link">
+                    <i class="fas fa-mobile-alt"></i> Смартфоны
+                </a>
+                <a href="catalog.html?category=consoles" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Игры и приставки
+                </a>
+                <a href="catalog.html?category=appliances" class="nav-link">
+                    <i class="fas fa-tv"></i> Бытовая техника
+                </a>
+                <a href="catalog.html?category=audio" class="nav-link">
+                    <i class="fas fa-headphones"></i> Аудиотехника
+                </a>
+                <a href="catalog.html?category=accessories" class="nav-link">
+                    <i class="fas fa-keyboard"></i> Аксессуары
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Главная</a> / <span>Оформление заказа</span>
+            </div>
+            
+            <h1 class="section-title">Оформление заказа</h1>
+            
+            <div id="cart-empty" style="text-align: center; padding: 60px 20px;">
+                <i class="fas fa-shopping-cart fa-4x" style="color: #ddd; margin-bottom: 20px;"></i>
+                <h3 style="color: #666; margin-bottom: 15px;">Корзина пуста</h3>
+                <p style="color: #888; margin-bottom: 30px; max-width: 400px; margin: 0 auto 30px;">
+                    Добавьте товары в корзину, чтобы оформить заказ
+                </p>
+                <a href="catalog.html" class="buy-btn" style="max-width: 250px; display: inline-block;">
+                    <i class="fas fa-shopping-bag"></i> Перейти в каталог
+                </a>
+            </div>
+            
+            <div id="cart-content" style="display: none;">
+                <div style="display: grid; grid-template-columns: 1fr 400px; gap: 40px; margin-bottom: 40px;">
+                    <!-- Товары в корзине -->
+                    <div>
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow); margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 20px; color: var(--primary-color);">
+                                <i class="fas fa-shopping-cart"></i> Товары в корзине
+                            </h3>
+                            
+                            <div id="cart-items">
+                                <!-- Товары будут загружены через JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Форма заказа -->
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                            <h3 style="margin-bottom: 20px; color: var(--primary-color);">
+                                <i class="fas fa-user"></i> Данные покупателя
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="order-name">Имя *</label>
+                                <input type="text" id="order-name" placeholder="Введите ваше имя" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-phone">Телефон *</label>
+                                <input type="tel" id="order-phone" placeholder="+7 (999) 123-45-67" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-email">Email</label>
+                                <input type="email" id="order-email" placeholder="email@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-city">Город *</label>
+                                <select id="order-city" required>
+                                    <option value="">Выберите город</option>
+                                    <option value="Уссурийск">Уссурийск</option>
+                                    <option value="Хабаровск">Хабаровск</option>
+                                    <option value="Находка">Находка</option>
+                                    <option value="Владивосток">Владивосток</option>
+                                    <option value="Большой Камень">Большой Камень</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-address">Адрес доставки</label>
+                                <textarea id="order-address" rows="3" placeholder="Улица, дом, квартира"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-comment">Комментарий к заказу</label>
+                                <textarea id="order-comment" rows="3" placeholder="Ваши пожелания"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Итого и оплата -->
+                    <div>
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow); position: sticky; top: 100px;">
+                            <h3 style="margin-bottom: 20px; color: var(--primary-color);">
+                                <i class="fas fa-receipt"></i> Итого
+                            </h3>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span style="color: #666;">Товары:</span>
+                                    <span id="order-subtotal">0 ₽</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span style="color: #666;">Доставка:</span>
+                                    <span id="order-delivery">0 ₽</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                                    <span style="color: #666;">Скидка:</span>
+                                    <span style="color: var(--accent-color);" id="order-discount">0 ₽</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 1.2em; font-weight: 600;">
+                                    <span>К оплате:</span>
+                                    <span style="color: var(--accent-color);" id="order-total">0 ₽</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin: 20px 0;">
+                                <label for="order-payment">Способ оплаты *</label>
+                                <select id="order-payment" required>
+                                    <option value="">Выберите способ оплаты</option>
+                                    <option value="cash">Наличными при получении</option>
+                                    <option value="card">Картой при получении</option>
+                                    <option value="online">Онлайн-оплата картой</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin: 20px 0;">
+                                <label for="order-delivery-method">Способ получения *</label>
+                                <select id="order-delivery-method" required onchange="updateDeliveryPrice()">
+                                    <option value="">Выберите способ получения</option>
+                                    <option value="pickup">Самовывоз из магазина</option>
+                                    <option value="courier">Доставка курьером</option>
+                                    <option value="post">Почта России</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin: 20px 0; display: flex; align-items: flex-start;">
+                                <label for="order-agreement" style="font-size: 0.9em; flex: 1; margin-right: 10px; margin-bottom: 0;">
+                                    Я согласен на обработку персональных данных и с <a href="#" style="color: var(--secondary-color);">условиями покупки</a>
+                                </label>
+                                <input type="checkbox" id="order-agreement" required style="width: auto; margin-top: 3px;">
+                            </div>
+                            
+                            <button class="submit-btn" onclick="submitOrder()">
+                                <i class="fas fa-check"></i> Подтвердить заказ
+                            </button>
+                            
+                            <div id="order-success" class="success-message" style="display: none;">
+                                Заказ успешно оформлен! Номер вашего заказа: <strong id="order-number">000000</strong>. Мы свяжемся с вами для подтверждения.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZELECTRONIC</h3>
+                <p>Комиссионная сеть проверенной техники. Мы отвечаем за то, что продаём!</p>
+                <div class="contact-info-footer">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (908) 999-88-77</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>10:00 – 20:00</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>team@zelectronic.ru</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/zelectronic_ussuriysk" class="social-icon" title="Наш Telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/79089998877" class="social-icon" title="Наш WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Каталог</h3>
+                <ul class="footer-links">
+                    <li><a href="catalog.html?category=notebooks">Ноутбуки и компьютеры</a></li>
+                    <li><a href="catalog.html?category=phones">Смартфоны и планшеты</a></li>
+                    <li><a href="catalog.html?category=consoles">Игры и приставки</a></li>
+                    <li><a href="catalog.html?category=appliances">Бытовая техника</a></li>
+                    <li><a href="catalog.html?category=audio">Аудиотехника</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Клиентам</h3>
+                <ul class="footer-links">
+                    <li><a href="actions.html">Акции</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="payment.html">Способы оплаты</a></li>
+                    <li><a href="warranty.html">Гарантия</a></li>
+                    <li><a href="sell.html">Продать технику</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Компания</h3>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; color: #bbb; font-size: 0.9em;">
+                ИП Власенко Антон Александрович, ИНН 251115679290, ОГРНИП 316251100053169,<br>
+                г.Уссурийск, ул. Некрасова д.79, ZELECTRONIC, Тел. +79089998877
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateFavoritesCount();
+            loadSelectedCity();
+            setupSearch();
+            loadCart();
+        });
+        
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('zelectronicCart') || '[]');
+            const emptyEl = document.getElementById('cart-empty');
+            const contentEl = document.getElementById('cart-content');
+            
+            if (cart.length === 0) {
+                emptyEl.style.display = 'block';
+                contentEl.style.display = 'none';
+                return;
+            }
+            
+            emptyEl.style.display = 'none';
+            contentEl.style.display = 'block';
+            
+            renderCartItems(cart);
+            updateOrderSummary(cart);
+        }
+        
+        function renderCartItems(cart) {
+            const container = document.getElementById('cart-items');
+            container.innerHTML = '';
+            
+            // Загружаем данные о товарах
+            loadAllProducts(function(allProducts) {
+                let subtotal = 0;
+                
+                cart.forEach(item => {
+                    const product = allProducts.find(p => p.id === item.id);
+                    if (!product) return;
+                    
+                    const itemTotal = product.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.style.cssText = `
+                        display: flex; 
+                        gap: 20px; 
+                        padding: 20px 0; 
+                        border-bottom: 1px solid #eee;
+                    `;
+                    
+                    cartItem.innerHTML = `
+                        <div style="flex-shrink: 0;">
+                            <div class="product-image" style="width: 80px; height: 80px;">
+                                <i class="fas fa-${getProductIcon(product.category)}"></i>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h4 style="margin-bottom: 5px; color: var(--primary-color);">${product.name}</h4>
+                            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">${product.status}</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <button onclick="updateQuantity(${product.id}, -1)" style="background: #f8f9fa; border: 1px solid #ddd; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">-</button>
+                                    <span style="font-weight: 600;">${item.quantity}</span>
+                                    <button onclick="updateQuantity(${product.id}, 1)" style="background: #f8f9fa; border: 1px solid #ddd; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">+</button>
+                                </div>
+                                <div style="font-weight: 600; color: var(--accent-color);">${itemTotal.toLocaleString()} ₽</div>
+                            </div>
+                        </div>
+                        <div>
+                            <button onclick="removeFromCartInCheckout(${product.id})" style="background: none; border: none; cursor: pointer; color: #666; font-size: 18px;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    container.appendChild(cartItem);
+                });
+                
+                document.getElementById('order-subtotal').textContent = subtotal.toLocaleString() + ' ₽';
+                updateDeliveryPrice();
+            });
+        }
+        
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('zelectronicCart') || '[]');
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                
+                localStorage.setItem('zelectronicCart', JSON.stringify(cart));
+                updateCartCount();
+                loadCart(); // Перерисовываем корзину
+            }
+        }
+        
+        function removeFromCartInCheckout(productId) {
+            let cart = JSON.parse(localStorage.getItem('zelectronicCart') || '[]');
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('zelectronicCart', JSON.stringify(cart));
+            
+            updateCartCount();
+            loadCart(); // Мгновенное обновление
+            showNotification('Товар удален из корзины');
+        }
+        
+        function updateOrderSummary(cart) {
+            loadAllProducts(function(allProducts) {
+                let subtotal = 0;
+                
+                cart.forEach(item => {
+                    const product = allProducts.find(p => p.id === item.id);
+                    if (product) {
+                        subtotal += product.price * item.quantity;
+                    }
+                });
+                
+                document.getElementById('order-subtotal').textContent = subtotal.toLocaleString() + ' ₽';
+                updateDeliveryPrice();
+            });
+        }
+        
+        function updateDeliveryPrice() {
+            const method = document.getElementById('order-delivery-method');
+            if (!method) return;
+            
+            const selectedMethod = method.value;
+            let deliveryPrice = 0;
+            
+            switch(selectedMethod) {
+                case 'pickup':
+                    deliveryPrice = 0;
+                    break;
+                case 'courier':
+                    deliveryPrice = 500;
+                    break;
+                case 'post':
+                    deliveryPrice = 300;
+                    break;
+                default:
+                    deliveryPrice = 0;
+            }
+            
+            document.getElementById('order-delivery').textContent = deliveryPrice === 0 ? 'Бесплатно' : deliveryPrice.toLocaleString() + ' ₽';
+            
+            // Обновляем итого
+            const subtotalText = document.getElementById('order-subtotal').textContent;
+            const subtotal = parseInt(subtotalText.replace(/\D/g, '')) || 0;
+            const total = subtotal + deliveryPrice;
+            
+            document.getElementById('order-total').textContent = total.toLocaleString() + ' ₽';
+        }
+        
+        function submitOrder() {
+            const name = document.getElementById('order-name').value;
+            const phone = document.getElementById('order-phone').value;
+            const city = document.getElementById('order-city').value;
+            const payment = document.getElementById('order-payment').value;
+            const delivery = document.getElementById('order-delivery-method').value;
+            const agreement = document.getElementById('order-agreement').checked;
+            
+            if (!name || !phone || !city || !payment || !delivery || !agreement) {
+                showNotification('Пожалуйста, заполните все обязательные поля', 'error');
+                return;
+            }
+            
+            // Генерируем номер заказа
+            const orderNumber = 'ZEL' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            document.getElementById('order-number').textContent = orderNumber;
+            
+            // Показываем сообщение об успехе
+            document.getElementById('order-success').style.display = 'block';
+            
+            // Очищаем корзину
+            localStorage.removeItem('zelectronicCart');
+            updateCartCount();
+            
+            // Прокручиваем к сообщению
+            document.getElementById('order-success').scrollIntoView({ behavior: 'smooth' });
+            
+            showNotification('Заказ успешно оформлен! Номер вашего заказа: ' + orderNumber);
+            
+            // Через 10 секунд скрываем сообщение и обновляем страницу
+            setTimeout(() => {
+                location.reload();
+            }, 10000);
+        }
+    </script>
+</body>
+</html>

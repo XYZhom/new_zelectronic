@@ -1,0 +1,117 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ноутбук Acer 1540BA-CO065T (8GB)",
+      "description": "Прочный и надежный. Специальная схема эксплуатации. Черный цвет.",
+      "price": 15658,
+      "status": "Новый",
+      "category": "notebooks",
+      "specs": {
+        "ram": "8GB",
+        "color": "Черный"
+      },
+      "image": "images/acer-laptop.jpg",
+      "cities": ["Уссурийск", "Хабаровск", "Владивосток"]
+    },
+    {
+      "id": 2,
+      "name": "Ноутбук HP15-2Z7Zur (512GB)",
+      "description": "Прочный и надежный. Работает только от сети. Черный цвет.",
+      "price": 7199,
+      "status": "Уцененный",
+      "category": "notebooks",
+      "specs": {
+        "storage": "512GB",
+        "color": "Черный"
+      },
+      "image": "images/hp-laptop.jpg",
+      "cities": ["Уссурийск", "Находка"]
+    },
+    {
+      "id": 3,
+      "name": "Ноутбук Huawei Honor MagicBook 14 (13.6\"/256GB)",
+      "description": "Ультрабук с тонким корпусом. Отличное состояние.",
+      "price": 22500,
+      "status": "Почти новый",
+      "category": "notebooks",
+      "specs": {
+        "screen": "13.6\"",
+        "storage": "256GB"
+      },
+      "image": "images/huawei-laptop.jpg",
+      "cities": ["Хабаровск", "Большой Камень"]
+    },
+    {
+      "id": 4,
+      "name": "Игровая приставка Sony Playstation 4 Pro (1TB)",
+      "description": "Мощная игровая консоль. В комплекте 1 контроллер.",
+      "price": 23999,
+      "status": "Почти новый",
+      "category": "consoles",
+      "specs": {
+        "storage": "1TB",
+        "model": "CUH-7208B"
+      },
+      "image": "images/ps4-pro.jpg",
+      "cities": ["Хабаровск", "Уссурийск"]
+    },
+    {
+      "id": 5,
+      "name": "Игровой контроллер Sony Playstation 4 Dualshock",
+      "description": "Оригинальный контроллер Dualshock 4. Цвет черный.",
+      "price": 899,
+      "status": "Уцененный",
+      "category": "consoles",
+      "specs": {
+        "color": "Черный",
+        "model": "Dualshock 4"
+      },
+      "image": "images/dualshock.jpg",
+      "cities": ["Все города"]
+    },
+    {
+      "id": 6,
+      "name": "Смартфон Samsung Galaxy S21 5G (8/256GB)",
+      "description": "Флагманский смартфон. Отличное состояние, полный комплект.",
+      "price": 34999,
+      "status": "Почти новый",
+      "category": "phones",
+      "specs": {
+        "ram": "8GB",
+        "storage": "256GB",
+        "model": "SM-G991N"
+      },
+      "image": "images/s21.jpg",
+      "cities": ["Владивосток", "Хабаровск"]
+    },
+    {
+      "id": 7,
+      "name": "Ноутбук Colorful EVOL X13 AT25 (13.6\"/512GB)",
+      "description":Игровой ноутбук с мощной видеокартой. Идеален для гейминга.",
+      "price": 68999,
+      "status": "Новый",
+      "category": "notebooks",
+      "specs": {
+        "screen": "13.6\"",
+        "storage": "512GB"
+      },
+      "image": "images/colorful-laptop.jpg",
+      "cities": ["Уссурийск"]
+    },
+    {
+      "id": 8,
+      "name": "Ноутбук HP 15-6005sr (13.6\"/1TB)",
+      "description": "Ноутбук для работы и учебы. Большой объем памяти.",
+      "price": 18999,
+      "status": "Уцененный",
+      "category": "notebooks",
+      "specs": {
+        "screen": "13.6\"",
+        "storage": "1TB"
+      },
+      "image": "images/hp-notebook.jpg",
+      "cities": ["Находка", "Большой Камень"]
+    }
+  ]
+}

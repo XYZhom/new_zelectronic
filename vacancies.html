@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вакансии - ZELECTRONIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79089998877" class="phone-number">
+                        <i class="fas fa-phone"></i> +7 (908) 999-88-77
+                    </a>
+                    <span class="working-hours">
+                        <i class="far fa-clock"></i> 10:00 – 20:00
+                    </span>
+                </div>
+                <div class="top-links">
+                    <a href="city-selector.html" class="city-link">
+                        <i class="fas fa-map-marker-alt"></i> <span class="current-city">Все города</span>
+                    </a>
+                    <a href="catalog.html" class="nav-link">
+                        <i class="fas fa-list"></i> Каталог
+                    </a>
+                    <a href="contacts.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Контакты
+                    </a>
+                    <a href="vacancies.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Вакансии
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span>Z</span>ELECTRONIC
+                </a>
+                
+                <div class="header-search">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Искать в магазине..." id="search-input">
+                        <button type="button" id="search-button">
+                            <i class="fas fa-search"></i> Найти
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="sell.html" class="sell-btn">
+                        <i class="fas fa-tag"></i> Продать нам
+                    </a>
+                    <a href="favorites.html" class="nav-link">
+                        <i class="far fa-heart"></i> Избранное <span class="favorites-count">0</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Оформить <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="catalog.html?category=notebooks" class="nav-link">
+                    <i class="fas fa-laptop"></i> Ноутбуки
+                </a>
+                <a href="catalog.html?category=phones" class="nav-link">
+                    <i class="fas fa-mobile-alt"></i> Смартфоны
+                </a>
+                <a href="catalog.html?category=consoles" class="nav-link">
+                    <i class="fas fa-gamepad"></i> Игры и приставки
+                </a>
+                <a href="catalog.html?category=appliances" class="nav-link">
+                    <i class="fas fa-tv"></i> Бытовая техника
+                </a>
+                <a href="catalog.html?category=audio" class="nav-link">
+                    <i class="fas fa-headphones"></i> Аудиотехника
+                </a>
+                <a href="catalog.html?category=accessories" class="nav-link">
+                    <i class="fas fa-keyboard"></i> Аксессуары
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Главная</a> / <span>Вакансии</span>
+            </div>
+            
+            <h1 class="section-title">Вакансии</h1>
+            
+            <div class="contact-info-card" style="text-align: center; margin-bottom: 40px;">
+                <i class="fas fa-briefcase fa-3x" style="color: var(--secondary-color); margin-bottom: 20px;"></i>
+                <h2>Присоединяйтесь к команде ZELECTRONIC!</h2>
+                <p>Мы растем и ищем талантливых людей, которые хотят развиваться вместе с нами. Присылайте резюме на <a href="mailto:hr@zelectronic.ru" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">hr@zelectronic.ru</a></p>
+            </div>
+            
+            <!-- Список вакансий -->
+            <div class="vacancies-list" style="margin-bottom: 40px;">
+                <div class="vacancy-card" style="background: white; border-radius: var(--border-radius); padding: 30px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Продавец-консультант</h3>
+                            <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                                <span style="color: #666;">
+                                    <i class="fas fa-map-marker-alt"></i> Уссурийск
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="fas fa-money-bill-alt"></i> от 40 000 ₽
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="far fa-clock"></i> Полный день
+                                </span>
+                            </div>
+                        </div>
+                        <span style="background: var(--secondary-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Актуально</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Обязанности:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Консультация клиентов по технике</li>
+                            <li>Продажа товаров и услуг</li>
+                            <li>Работа с кассой и документацией</li>
+                            <li>Выкладка товара и поддержание порядка в торговом зале</li>
+                            <li>Прием товара на комиссию</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Требования:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Опыт работы в продажах от 1 года</li>
+                            <li>Знание компьютерной техники и электроники</li>
+                            <li>Клиентоориентированность и коммуникабельность</li>
+                            <li>Ответственность и внимательность</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Условия:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Официальное трудоустройство</li>
+                            <li>Обучение за счет компании</li>
+                            <li>График 5/2, смены 10:00-20:00</li>
+                            <li>Премии и бонусы от продаж</li>
+                            <li>Скидка на технику в магазинах сети</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="buy-btn" onclick="openVacancyForm('Продавец-консультант')">
+                        <i class="fas fa-paper-plane"></i> Откликнуться на вакансию
+                    </button>
+                </div>
+                
+                <div class="vacancy-card" style="background: white; border-radius: var(--border-radius); padding: 30px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Специалист по закупкам</h3>
+                            <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                                <span style="color: #666;">
+                                    <i class="fas fa-map-marker-alt"></i> Хабаровск
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="fas fa-money-bill-alt"></i> от 60 000 ₽
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="far fa-clock"></i> Полный день
+                                </span>
+                            </div>
+                        </div>
+                        <span style="background: var(--secondary-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Актуально</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Обязанности:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Поиск и оценка техники для закупки</li>
+                            <li>Ведение переговоров с поставщиками</li>
+                            <li>Формирование закупочных цен</li>
+                            <li>Контроль качества закупаемой техники</li>
+                            <li>Анализ рынка и цен</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Требования:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Опыт работы в закупках электроники от 2 лет</li>
+                            <li>Отличное знание рынка б/у техники</li>
+                            <li>Умение оценивать техническое состояние устройств</li>
+                            <li>Навыки ведения переговоров</li>
+                            <li>Аналитическое мышление</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="buy-btn" onclick="openVacancyForm('Специалист по закупкам')">
+                        <i class="fas fa-paper-plane"></i> Откликнуться на вакансию
+                    </button>
+                </div>
+                
+                <div class="vacancy-card" style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Техник-диагност</h3>
+                            <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                                <span style="color: #666;">
+                                    <i class="fas fa-map-marker-alt"></i> Владивосток
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="fas fa-money-bill-alt"></i> от 55 000 ₽
+                                </span>
+                                <span style="color: #666;">
+                                    <i class="far fa-clock"></i> Полный день
+                                </span>
+                            </div>
+                        </div>
+                        <span style="background: var(--accent-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Срочно</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Обязанности:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Диагностика и тестирование техники</li>
+                            <li>Составление заключений о состоянии устройств</li>
+                            <li>Несложный ремонт и замена компонентов</li>
+                            <li>Подготовка отчетов о проверке</li>
+                            <li>Консультация по вопросам ремонта</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">Требования:</h4>
+                        <ul style="color: #666; margin-left: 20px;">
+                            <li>Опыт диагностики электроники от 1 года</li>
+                            <li>Знание устройства ПК, ноутбуков, смартфонов</li>
+                            <li>Умение работать с диагностическим оборудованием</li>
+                            <li>Внимательность и аккуратность</li>
+                            <li>Ответственность и исполнительность</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="buy-btn" onclick="openVacancyForm('Техник-диагност')">
+                        <i class="fas fa-paper-plane"></i> Откликнуться на вакансию
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Форма отклика -->
+            <div id="vacancy-form" class="contact-form" style="display: none;">
+                <h2 class="section-title" id="vacancy-title">Отклик на вакансию</h2>
+                
+                <div class="form-group">
+                    <label for="vacancy-name">Ваше имя *</label>
+                    <input type="text" id="vacancy-name" placeholder="Введите ваше имя" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-phone">Телефон *</label>
+                    <input type="tel" id="vacancy-phone" placeholder="+7 (999) 123-45-67" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-email">Email *</label>
+                    <input type="email" id="vacancy-email" placeholder="email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-position">Вакансия</label>
+                    <input type="text" id="vacancy-position" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-experience">Опыт работы (лет)</label>
+                    <input type="number" id="vacancy-experience" placeholder="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-resume">Сопроводительное письмо</label>
+                    <textarea id="vacancy-resume" rows="4" placeholder="Расскажите о себе и своем опыте"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="vacancy-file">Резюме (PDF, DOC, DOCX)</label>
+                    <input type="file" id="vacancy-file" accept=".pdf,.doc,.docx">
+                </div>
+                
+                <div class="form-group" style="margin: 20px 0;">
+                    <input type="checkbox" id="vacancy-agreement" required>
+                    <label for="vacancy-agreement" style="display: inline; font-size: 0.9em;">
+                        Я согласен на обработку персональных данных
+                    </label>
+                </div>
+                
+                <div style="display: flex; gap: 15px;">
+                    <button type="button" class="submit-btn" onclick="submitVacancyForm()">
+                        <i class="fas fa-paper-plane"></i> Отправить
+                    </button>
+                    <button type="button" class="buy-btn" style="background: #666;" onclick="closeVacancyForm()">
+                        <i class="fas fa-times"></i> Отмена
+                    </button>
+                </div>
+                
+                <div id="vacancy-success" class="success-message" style="display: none;">
+                    Отклик отправлен! Мы рассмотрим вашу кандидатуру и свяжемся с вами.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZELECTRONIC</h3>
+                <p>Комиссионная сеть проверенной техники. Мы отвечаем за то, что продаём!</p>
+                <div class="contact-info-footer">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (908) 999-88-77</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>10:00 – 20:00</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>team@zelectronic.ru</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/zelectronic_ussuriysk" class="social-icon" title="Наш Telegram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/79089998877" class="social-icon" title="Наш WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Каталог</h3>
+                <ul class="footer-links">
+                    <li><a href="catalog.html?category=notebooks">Ноутбуки и компьютеры</a></li>
+                    <li><a href="catalog.html?category=phones">Смартфоны и планшеты</a></li>
+                    <li><a href="catalog.html?category=consoles">Игры и приставки</a></li>
+                    <li><a href="catalog.html?category=appliances">Бытовая техника</a></li>
+                    <li><a href="catalog.html?category=audio">Аудиотехника</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Клиентам</h3>
+                <ul class="footer-links">
+                    <li><a href="actions.html">Акции</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="payment.html">Способы оплаты</a></li>
+                    <li><a href="warranty.html">Гарантия</a></li>
+                    <li><a href="sell.html">Продать технику</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Компания</h3>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; color: #bbb; font-size: 0.9em;">
+                ИП Власенко Антон Александрович, ИНН 251115679290, ОГРНИП 316251100053169,<br>
+                г.Уссурийск, ул. Некрасова д.79, ZELECTRONIC, Тел. +79089998877
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateFavoritesCount();
+            loadSelectedCity();
+            setupSearch();
+        });
+        
+        function openVacancyForm(position) {
+            document.getElementById('vacancy-form').style.display = 'block';
+            document.getElementById('vacancy-position').value = position;
+            document.getElementById('vacancy-title').textContent = 'Отклик на вакансию: ' + position;
+            
+            // Прокручиваем к форме
+            document.getElementById('vacancy-form').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function closeVacancyForm() {
+            document.getElementById('vacancy-form').style.display = 'none';
+            document.getElementById('vacancy-success').style.display = 'none';
+            
+            // Очищаем форму
+            document.getElementById('vacancy-name').value = '';
+            document.getElementById('vacancy-phone').value = '';
+            document.getElementById('vacancy-email').value = '';
+            document.getElementById('vacancy-experience').value = '';
+            document.getElementById('vacancy-resume').value = '';
+            document.getElementById('vacancy-file').value = '';
+            document.getElementById('vacancy-agreement').checked = false;
+        }
+        
+        function submitVacancyForm() {
+            const name = document.getElementById('vacancy-name').value;
+            const phone = document.getElementById('vacancy-phone').value;
+            const email = document.getElementById('vacancy-email').value;
+            const agreement = document.getElementById('vacancy-agreement').checked;
+            
+            if (!name || !phone || !email || !agreement) {
+                showNotification('Пожалуйста, заполните все обязательные поля', 'error');
+                return;
+            }
+            
+            document.getElementById('vacancy-success').style.display = 'block';
+            
+            // Очищаем форму через 3 секунды
+            setTimeout(() => {
+                closeVacancyForm();
+            }, 3000);
+            
+            showNotification('Отклик отправлен! Мы рассмотрим вашу кандидатуру и свяжемся с вами.');
+        }
+    </script>
+</body>
+</html>
