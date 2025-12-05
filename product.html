@@ -6,6 +6,363 @@
     <title>Детальная информация о товаре - ZELECTRONIC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Стили для страницы товара */
+        .product-detail-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .product-main-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .product-gallery {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .main-image i {
+            color: var(--secondary-color);
+        }
+        
+        .product-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .product-header h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .product-cities-detail {
+            color: #666;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .product-price-detail {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .wishlist-btn {
+            background: #f8f9fa;
+            color: var(--primary-color);
+            border: 2px solid #ddd;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            min-height: 50px;
+        }
+        
+        .wishlist-btn:hover {
+            background: #e9ecef;
+            border-color: var(--secondary-color);
+        }
+        
+        .wishlist-btn.active {
+            background: #ffeaea;
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+        
+        .product-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .meta-item i {
+            color: var(--secondary-color);
+        }
+        
+        .details-tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-btn.active {
+            color: var(--secondary-color);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .product-features {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+        
+        .product-features h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .product-features ul {
+            list-style-type: disc;
+            margin-left: 25px; /* Исправленный отступ */
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .product-features li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table td {
+            padding: 12px;
+        }
+        
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-color);
+            width: 30%;
+        }
+        
+        .delivery-option {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+        
+        .delivery-option i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        .recommended-products {
+            margin-top: 60px;
+        }
+        
+        /* Мобильная адаптация страницы товара */
+        @media (max-width: 768px) {
+            .product-detail-container {
+                padding: 20px;
+                margin-top: 10px;
+            }
+            
+            .product-main-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .product-gallery {
+                padding: 30px;
+            }
+            
+            .main-image i {
+                font-size: 4em;
+            }
+            
+            .product-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .product-header h1 {
+                font-size: 22px;
+            }
+            
+            .product-price-detail {
+                font-size: 26px;
+            }
+            
+            .product-actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .wishlist-btn {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 10px;
+            }
+            
+            .product-meta {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .details-tabs {
+                flex-wrap: wrap;
+                border-bottom: none;
+            }
+            
+            .tab-btn {
+                padding: 12px 15px;
+                font-size: 14px;
+                flex: 1;
+                text-align: center;
+                border: 1px solid #eee;
+                border-bottom: 2px solid transparent;
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
+            }
+            
+            .tab-btn.active {
+                border-bottom: 2px solid var(--secondary-color);
+                background: white;
+            }
+            
+            .delivery-option {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+                padding: 15px;
+            }
+            
+            .product-features {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            
+            .product-features ul {
+                margin-left: 20px;
+            }
+            
+            .recommended-products {
+                margin-top: 40px;
+            }
+            
+            .recommended-products .products-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-detail-container {
+                padding: 15px;
+            }
+            
+            .product-header h1 {
+                font-size: 20px;
+            }
+            
+            .product-price-detail {
+                font-size: 24px;
+            }
+            
+            .tab-btn {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            
+            .main-image i {
+                font-size: 3em;
+            }
+            
+            .product-features ul {
+                margin-left: 15px;
+            }
+        }
+        
+        /* Плавные анимации */
+        .tab-content {
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-gallery {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-gallery:hover {
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -126,8 +483,8 @@
                             <button class="buy-btn" onclick="addToCartFromDetail()">
                                 <i class="fas fa-shopping-cart"></i> Добавить в корзину
                             </button>
-                            <button class="wishlist-btn" id="wishlist-btn" onclick="toggleWishlistFromDetail()">
-                                <i class="far fa-heart"></i> В избранное
+                            <button class="wishlist-btn" id="wishlist-btn" onclick="toggleWishlistFromDetail()" title="Добавить в избранное">
+                                <i class="far fa-heart"></i>
                             </button>
                         </div>
                         
@@ -291,292 +648,6 @@
 
     <script src="script.js"></script>
     <script>
-        // Стили для страницы товара
-        const productStyles = `
-            <style>
-                .product-detail-container {
-                    background: white;
-                    border-radius: var(--border-radius);
-                    padding: 30px;
-                    box-shadow: var(--shadow);
-                    margin-bottom: 40px;
-                }
-                
-                .product-main-info {
-                    display: grid;
-                    grid-template-columns: 1fr 2fr;
-                    gap: 40px;
-                    margin-bottom: 40px;
-                }
-                
-                .product-gallery {
-                    background: #f8f9fa;
-                    border-radius: var(--border-radius);
-                    padding: 40px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                
-                .main-image i {
-                    color: var(--secondary-color);
-                }
-                
-                .product-summary {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                }
-                
-                .product-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
-                    margin-bottom: 10px;
-                }
-                
-                .product-header h1 {
-                    font-size: 28px;
-                    color: var(--primary-color);
-                    margin: 0;
-                }
-                
-                .product-cities-detail {
-                    color: #666;
-                    font-size: 0.95em;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-                
-                .product-price-detail {
-                    font-size: 32px;
-                    font-weight: 700;
-                    color: var(--accent-color);
-                    margin: 10px 0;
-                }
-                
-                .product-actions {
-                    display: flex;
-                    gap: 15px;
-                    margin: 20px 0;
-                }
-                
-                .wishlist-btn {
-                    background: #f8f9fa;
-                    color: var(--primary-color);
-                    border: 2px solid #ddd;
-                    padding: 12px 25px;
-                    border-radius: var(--border-radius);
-                    font-size: 16px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: var(--transition);
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-                
-                .wishlist-btn:hover {
-                    background: #e9ecef;
-                    border-color: var(--secondary-color);
-                }
-                
-                .wishlist-btn.active {
-                    background: #ffeaea;
-                    border-color: #e74c3c;
-                    color: #e74c3c;
-                }
-                
-                .product-meta {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 15px;
-                    background: #f8f9fa;
-                    padding: 20px;
-                    border-radius: var(--border-radius);
-                    margin-top: 20px;
-                }
-                
-                .meta-item {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    color: #666;
-                }
-                
-                .meta-item i {
-                    color: var(--secondary-color);
-                }
-                
-                .details-tabs {
-                    display: flex;
-                    border-bottom: 2px solid #eee;
-                    margin-bottom: 30px;
-                }
-                
-                .tab-btn {
-                    padding: 15px 30px;
-                    background: none;
-                    border: none;
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: #666;
-                    cursor: pointer;
-                    position: relative;
-                }
-                
-                .tab-btn.active {
-                    color: var(--secondary-color);
-                }
-                
-                .tab-btn.active::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -2px;
-                    left: 0;
-                    right: 0;
-                    height: 2px;
-                    background: var(--secondary-color);
-                }
-                
-                .tab-pane {
-                    display: none;
-                }
-                
-                .tab-pane.active {
-                    display: block;
-                }
-                
-                .product-features {
-                    margin-top: 30px;
-                    padding: 20px;
-                    background: #f8f9fa;
-                    border-radius: var(--border-radius);
-                }
-                
-                .specs-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                
-                .specs-table tr {
-                    border-bottom: 1px solid #eee;
-                }
-                
-                .specs-table td {
-                    padding: 12px;
-                }
-                
-                .specs-table td:first-child {
-                    font-weight: 600;
-                    color: var(--primary-color);
-                    width: 30%;
-                }
-                
-                .delivery-option {
-                    display: flex;
-                    gap: 20px;
-                    padding: 20px;
-                    background: #f8f9fa;
-                    border-radius: var(--border-radius);
-                    margin-bottom: 15px;
-                }
-                
-                .delivery-option i {
-                    font-size: 24px;
-                    color: var(--secondary-color);
-                    margin-top: 5px;
-                }
-                
-                .recommended-products {
-                    margin-top: 60px;
-                }
-                
-                /* Мобильная адаптация страницы товара */
-                @media (max-width: 768px) {
-                    .product-main-info {
-                        grid-template-columns: 1fr;
-                        gap: 20px;
-                    }
-                    
-                    .product-gallery {
-                        padding: 30px;
-                    }
-                    
-                    .main-image i {
-                        font-size: 6em;
-                    }
-                    
-                    .product-header {
-                        flex-direction: column;
-                        align-items: flex-start;
-                        gap: 10px;
-                    }
-                    
-                    .product-header h1 {
-                        font-size: 24px;
-                    }
-                    
-                    .product-price-detail {
-                        font-size: 28px;
-                    }
-                    
-                    .product-actions {
-                        flex-direction: column;
-                    }
-                    
-                    .product-meta {
-                        grid-template-columns: 1fr;
-                        gap: 15px;
-                    }
-                    
-                    .details-tabs {
-                        flex-wrap: wrap;
-                    }
-                    
-                    .tab-btn {
-                        padding: 12px 20px;
-                        font-size: 14px;
-                        flex: 1;
-                        text-align: center;
-                    }
-                    
-                    .delivery-option {
-                        flex-direction: column;
-                        gap: 10px;
-                        align-items: flex-start;
-                    }
-                }
-                
-                @media (max-width: 480px) {
-                    .product-detail-container {
-                        padding: 20px;
-                    }
-                    
-                    .product-header h1 {
-                        font-size: 20px;
-                    }
-                    
-                    .product-price-detail {
-                        font-size: 24px;
-                    }
-                    
-                    .tab-btn {
-                        padding: 10px 15px;
-                        font-size: 13px;
-                    }
-                    
-                    .main-image i {
-                        font-size: 4em;
-                    }
-                }
-            </style>
-        `;
-        
-        // Добавляем стили в head
-        document.head.insertAdjacentHTML('beforeend', productStyles);
-        
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
             updateFavoritesCount();
@@ -584,7 +655,49 @@
             setupSearch();
             loadProductDetails();
             loadRecommendedProducts();
+            setupMobileHeader();
         });
+        
+        // Умный хедер для мобильных
+        function setupMobileHeader() {
+            const header = document.querySelector('.main-header');
+            if (!header) return;
+            
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+            
+            function updateHeader() {
+                if (window.innerWidth <= 768) {
+                    if (lastScrollY < 10) {
+                        header.style.transform = 'translateY(calc(-100% + 60px))';
+                    } else {
+                        header.style.transform = 'translateY(0)';
+                    }
+                }
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', function() {
+                lastScrollY = window.scrollY;
+                if (!ticking) {
+                    window.requestAnimationFrame(updateHeader);
+                    ticking = true;
+                }
+            });
+            
+            // При наведении на мобильных показываем полностью
+            header.addEventListener('mouseenter', function() {
+                if (window.innerWidth <= 768) {
+                    header.style.transform = 'translateY(0)';
+                }
+            });
+            
+            header.addEventListener('touchstart', function() {
+                if (window.innerWidth <= 768) {
+                    header.style.transform = 'translateY(0)';
+                }
+            });
+        }
         
         // Получаем ID товара из URL
         function getProductIdFromUrl() {
@@ -600,13 +713,11 @@
                 const product = products.find(p => p.id === productId);
                 
                 if (!product) {
-                    // Если товар не найден, перенаправляем на каталог
                     showNotification('Товар не найден', 'error');
                     setTimeout(() => window.location.href = 'catalog.html', 2000);
                     return;
                 }
                 
-                // Обновляем информацию о товаре
                 updateProductPage(product);
             });
         }
@@ -674,6 +785,11 @@
                 }
             }
             
+            // Добавляем дополнительные особенности
+            features.push(`Категория: ${categoryNames[product.category] || product.category}`);
+            features.push(`Статус: ${product.status}`);
+            features.push(`Гарантия: ${warranty}`);
+            
             document.getElementById('product-features-list').innerHTML = features.map(feature => 
                 `<li>${feature}</li>`
             ).join('');
@@ -707,13 +823,16 @@
             const wishlist = JSON.parse(localStorage.getItem('zelectronicWishlist') || '[]');
             const isInWishlist = wishlist.includes(productId);
             const button = document.getElementById('wishlist-btn');
+            const icon = button.querySelector('i');
             
             if (isInWishlist) {
-                button.innerHTML = '<i class="fas fa-heart"></i> В избранном';
+                icon.className = 'fas fa-heart';
                 button.classList.add('active');
+                button.style.color = '#e74c3c';
             } else {
-                button.innerHTML = '<i class="far fa-heart"></i> В избранное';
+                icon.className = 'far fa-heart';
                 button.classList.remove('active');
+                button.style.color = '';
             }
         }
         
@@ -742,7 +861,7 @@
                 // Ищем товары из той же категории, исключая текущий
                 const recommended = products
                     .filter(p => p.id !== productId && p.category === currentProduct.category)
-                    .slice(0, 4); // Берем максимум 4 товара
+                    .slice(0, 4);
                 
                 // Если товаров из той же категории меньше 4, добавляем другие популярные
                 if (recommended.length < 4) {
@@ -774,7 +893,6 @@
                 if (product.status === 'Уцененный') statusClass = 'status-used';
                 if (product.status === 'Почти новый') statusClass = 'status-refurbished';
                 
-                // Проверяем, есть ли товар в избранном
                 const wishlist = JSON.parse(localStorage.getItem('zelectronicWishlist') || '[]');
                 const isInWishlist = wishlist.includes(product.id);
                 
@@ -785,7 +903,7 @@
                     <div class="product-info">
                         <div style="display: flex; justify-content: space-between; align-items: start;">
                             <span class="product-status ${statusClass}">${product.status}</span>
-                            <button onclick="toggleWishlist(${product.id}, this)" style="background: none; border: none; cursor: pointer; color: ${isInWishlist ? '#e74c3c' : '#ccc'}; font-size: 20px;">
+                            <button onclick="toggleWishlist(${product.id}, this)" style="background: none; border: none; cursor: pointer; color: ${isInWishlist ? '#e74c3c' : '#ccc'}; font-size: 20px;" title="${isInWishlist ? 'Удалить из избранного' : 'Добавить в избранное'}">
                                 <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i>
                             </button>
                         </div>
