@@ -1,4 +1,4 @@
-// script.js - обновленная версия с мобильным меню
+// script.js - исправленная версия без мобильного меню
 
 // Глобальные переменные для товаров
 let allProducts = [];
@@ -21,51 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка формы поиска
     setupSearch();
     
-    // Настройка мобильного меню
-    setupMobileMenu();
-    
     // Загрузка товаров
     loadAllProducts();
 });
-
-// Настройка мобильного меню
-function setupMobileMenu() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-navigation');
-    
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            const icon = this.querySelector('i');
-            if (mainNav.classList.contains('active')) {
-                icon.className = 'fas fa-times';
-                document.body.style.overflow = 'hidden';
-            } else {
-                icon.className = 'fas fa-bars';
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Закрытие меню при клике на ссылку
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mainNav.classList.remove('active');
-                document.querySelector('.mobile-menu-toggle i').className = 'fas fa-bars';
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Закрытие меню при клике вне его
-        document.addEventListener('click', function(event) {
-            if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
-                mainNav.classList.remove('active');
-                document.querySelector('.mobile-menu-toggle i').className = 'fas fa-bars';
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
 
 // Загрузка всех товаров
 function loadAllProducts(callback) {

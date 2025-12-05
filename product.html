@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Детальная информация о товаре - ZELECTRONIC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -396,36 +396,33 @@
     
     <div class="container">
         <div class="nav-content">
-            <a href="index.html" class="logo">
-                <span>Z</span>ELECTRONIC
+    <div class="logo-section">
+        <a href="index.html" class="logo">
+            <span>Z</span>ELECTRONIC
+        </a>
+        
+        <div class="user-actions">
+            <a href="sell.html" class="sell-btn">
+                <i class="fas fa-tag"></i> <span>Продать нам</span>
             </a>
-            
-            <!-- Добавленная кнопка мобильного меню -->
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <div class="user-actions">
-                <a href="sell.html" class="sell-btn">
-                    <i class="fas fa-tag"></i> Продать нам
-                </a>
-                <a href="favorites.html" class="nav-link">
-                    <i class="far fa-heart"></i> <span class="favorites-count">0</span>
-                </a>
-                <a href="checkout.html" class="nav-link">
-                    <i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span>
-                </a>
-            </div>
-            
-            <div class="header-search">
-                <div class="search-bar">
-                    <input type="text" placeholder="Искать в магазине..." id="search-input">
-                    <button type="button" id="search-button">
-                        <i class="fas fa-search"></i> Найти
-                    </button>
-                </div>
-            </div>
+            <a href="favorites.html" class="nav-link">
+                <i class="far fa-heart"></i> <span class="favorites-count">0</span>
+            </a>
+            <a href="checkout.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span>
+            </a>
         </div>
+    </div>
+    
+    <div class="header-search">
+        <div class="search-bar">
+            <input type="text" placeholder="Искать в магазине..." id="search-input">
+            <button type="button" id="search-button">
+                <i class="fas fa-search"></i> Найти
+            </button>
+        </div>
+    </div>
+</div>
         
         <!-- Обновленная навигация с классом main-navigation -->
         <nav class="main-navigation">
