@@ -2,10 +2,126 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Оформление заказа - ZELECTRONIC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Дополнительные стили для страницы заказа */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+        }
+        
+        .quantity-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .item-total {
+            font-weight: 600;
+            color: var(--accent-color);
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 18px;
+            padding: 5px;
+        }
+        
+        /* Мобильная адаптация для страницы заказа */
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+                padding: 15px 0;
+            }
+            
+            .cart-item > div:first-child {
+                text-align: center;
+            }
+            
+            .quantity-controls {
+                margin-right: 0;
+                justify-content: center;
+            }
+            
+            .item-total {
+                text-align: center;
+                margin-top: 10px;
+            }
+            
+            .cart-item-actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            
+            /* Чекбокс соглашения */
+            .form-group label[for="order-agreement"] {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                font-size: 0.9em;
+            }
+            
+            .form-group label[for="order-agreement"] input {
+                width: auto;
+                margin-top: 3px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .checkout-grid {
+                gap: 15px;
+            }
+            
+            .cart-item {
+                padding: 10px 0;
+            }
+            
+            .quantity-btn {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -39,36 +155,33 @@
     
     <div class="container">
         <div class="nav-content">
-            <a href="index.html" class="logo">
-                <span>Z</span>ELECTRONIC
+    <div class="logo-section">
+        <a href="index.html" class="logo">
+            <span>Z</span>ELECTRONIC
+        </a>
+        
+        <div class="user-actions">
+            <a href="sell.html" class="sell-btn">
+                <i class="fas fa-tag"></i> <span>Продать нам</span>
             </a>
-            
-            <!-- Добавленная кнопка мобильного меню -->
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <div class="user-actions">
-                <a href="sell.html" class="sell-btn">
-                    <i class="fas fa-tag"></i> Продать нам
-                </a>
-                <a href="favorites.html" class="nav-link">
-                    <i class="far fa-heart"></i> <span class="favorites-count">0</span>
-                </a>
-                <a href="checkout.html" class="nav-link">
-                    <i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span>
-                </a>
-            </div>
-            
-            <div class="header-search">
-                <div class="search-bar">
-                    <input type="text" placeholder="Искать в магазине..." id="search-input">
-                    <button type="button" id="search-button">
-                        <i class="fas fa-search"></i> Найти
-                    </button>
-                </div>
-            </div>
+            <a href="favorites.html" class="nav-link">
+                <i class="far fa-heart"></i> <span class="favorites-count">0</span>
+            </a>
+            <a href="checkout.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span>
+            </a>
         </div>
+    </div>
+    
+    <div class="header-search">
+        <div class="search-bar">
+            <input type="text" placeholder="Искать в магазине..." id="search-input">
+            <button type="button" id="search-button">
+                <i class="fas fa-search"></i> Найти
+            </button>
+        </div>
+    </div>
+</div>
         
         <!-- Обновленная навигация с классом main-navigation -->
         <nav class="main-navigation">
@@ -120,7 +233,7 @@
             </div>
             
             <div id="cart-content" style="display: none;">
-                <div style="display: grid; grid-template-columns: 1fr 400px; gap: 40px; margin-bottom: 40px;">
+                <div class="checkout-grid">
                     <!-- Товары в корзине -->
                     <div>
                         <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow); margin-bottom: 20px;">
@@ -224,11 +337,11 @@
                                 </select>
                             </div>
                             
-                            <div class="form-group" style="margin: 20px 0; display: flex; align-items: flex-start;">
-                                <label for="order-agreement" style="font-size: 0.9em; flex: 1; margin-right: 10px; margin-bottom: 0;">
+                            <div class="form-group" style="margin: 20px 0;">
+                                <label for="order-agreement" style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9em;">
+                                    <input type="checkbox" id="order-agreement" required style="width: auto; margin-top: 3px;">
                                     Я согласен на обработку персональных данных и с <a href="#" style="color: var(--secondary-color);">условиями покупки</a>
                                 </label>
-                                <input type="checkbox" id="order-agreement" required style="width: auto; margin-top: 3px;">
                             </div>
                             
                             <button class="submit-btn" onclick="submitOrder()">
@@ -362,12 +475,6 @@
                     
                     const cartItem = document.createElement('div');
                     cartItem.className = 'cart-item';
-                    cartItem.style.cssText = `
-                        display: flex; 
-                        gap: 20px; 
-                        padding: 20px 0; 
-                        border-bottom: 1px solid #eee;
-                    `;
                     
                     cartItem.innerHTML = `
                         <div style="flex-shrink: 0;">
@@ -378,17 +485,17 @@
                         <div style="flex: 1;">
                             <h4 style="margin-bottom: 5px; color: var(--primary-color);">${product.name}</h4>
                             <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">${product.status}</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <button onclick="updateQuantity(${product.id}, -1)" style="background: #f8f9fa; border: 1px solid #ddd; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">-</button>
-                                    <span style="font-weight: 600;">${item.quantity}</span>
-                                    <button onclick="updateQuantity(${product.id}, 1)" style="background: #f8f9fa; border: 1px solid #ddd; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">+</button>
+                            <div class="cart-item-actions">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn" onclick="updateQuantity(${product.id}, -1)">-</button>
+                                    <span style="font-weight: 600; min-width: 30px; text-align: center;">${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity(${product.id}, 1)">+</button>
                                 </div>
-                                <div style="font-weight: 600; color: var(--accent-color);">${itemTotal.toLocaleString()} ₽</div>
+                                <div class="item-total">${itemTotal.toLocaleString()} ₽</div>
                             </div>
                         </div>
                         <div>
-                            <button onclick="removeFromCartInCheckout(${product.id})" style="background: none; border: none; cursor: pointer; color: #666; font-size: 18px;">
+                            <button class="remove-btn" onclick="removeFromCartInCheckout(${product.id})">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
