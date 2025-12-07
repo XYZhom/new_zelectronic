@@ -25,37 +25,22 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Исправление для проблемы 5 */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
-/* Header Styles - адаптивный без гамбургера - исправление для проблемы 1 */
+/* Header Styles - адаптивный без гамбургера */
 .main-header {
     background-color: white;
     box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-/* Для мобильных: делаем хедер менее навязчивым */
-@media (max-width: 768px) {
-    .main-header {
-        position: relative; /* Изменено с sticky/fixed на relative */
-        width: 100%;
-        top: 0;
-        transform: none !important; /* Убираем трансформации */
-    }
-    
-    .main-content {
-        padding-top: 0; /* Убираем отступ, т.к. хедер теперь не фиксированный */
-    }
 }
 
 .top-bar {
@@ -232,6 +217,7 @@ body {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-links {
@@ -254,6 +240,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     margin: 40px 0;
+    width: 100%;
 }
 
 .product-card {
@@ -263,6 +250,7 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     border: 1px solid #eee;
+    width: 100%;
 }
 
 .product-card:hover {
@@ -511,6 +499,7 @@ body {
 
 .form-group {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .form-group label {
@@ -518,6 +507,7 @@ body {
     margin-bottom: 8px;
     font-weight: 500;
     color: var(--primary-color);
+    width: 100%;
 }
 
 .form-group input,
@@ -560,6 +550,7 @@ body {
     flex: 1;
     padding-top: 20px;
     width: 100%;
+    overflow-x: hidden;
 }
 
 /* Breadcrumbs */
@@ -587,7 +578,7 @@ body {
     font-size: 28px;
 }
 
-/* Filters - исправление для проблемы 2 */
+/* Filters - ИСПРАВЛЕНА ПРОБЛЕМА 1 */
 .filters-panel {
     background: white;
     padding: 20px;
@@ -595,7 +586,8 @@ body {
     box-shadow: var(--shadow);
     margin-bottom: 30px;
     width: 100%;
-    overflow: visible;
+    overflow-x: visible;
+    box-sizing: border-box;
 }
 
 .filters-grid {
@@ -604,18 +596,27 @@ body {
     gap: 20px;
     align-items: end;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .filter-group {
     display: flex;
     flex-direction: column;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .filter-group label {
     margin-bottom: 8px;
     font-weight: 500;
     color: var(--primary-color);
+    width: 100%;
+}
+
+.filter-select, .price-input {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* Page content */
@@ -727,7 +728,6 @@ body {
 
 /* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
-    /* Проблема 1: исправление хедера */
     .main-header {
         position: relative;
         transform: none !important;
@@ -735,6 +735,7 @@ body {
     
     .main-content {
         padding-top: 0;
+        overflow-x: hidden;
     }
     
     /* Верхняя контактная полоса - скрываем телефон на мобильных */
@@ -809,13 +810,17 @@ body {
     .main-navigation {
         order: 3;
         border: none;
-        margin: 0 -20px;
-        padding: 0 20px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: auto;
     }
     
     .nav-links {
         gap: 15px;
         padding: 10px 0;
+        width: max-content;
+        min-width: 100%;
     }
     
     .nav-links a {
@@ -828,6 +833,7 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
         margin: 20px 0;
+        width: 100%;
     }
     
     .product-image {
@@ -857,16 +863,22 @@ body {
     .contact-form {
         padding: 20px;
         margin: 20px auto;
+        width: 100%;
+        box-sizing: border-box;
     }
     
-    /* Проблема 2: исправление фильтров в каталоге */
+    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 1: Фильтры в каталоге */
     .filters-panel {
-        overflow-x: clip;
+        overflow-x: visible;
         padding: 15px;
-        width: calc(100vw - 40px);
-        margin-left: -20px;
-        margin-right: -20px;
-        border-radius: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: var(--border-radius);
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        right: 0;
     }
     
     .filters-grid {
@@ -874,10 +886,12 @@ body {
         gap: 15px;
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
     
     .filter-group {
         width: 100%;
+        box-sizing: border-box;
     }
     
     .filter-select, .price-input {
@@ -890,12 +904,13 @@ body {
     #apply-filters {
         width: 100%;
         max-width: 100%;
+        box-sizing: border-box;
     }
     
     /* Герой */
     .hero {
         padding: 40px 20px;
-        margin: -10px -20px 20px;
+        margin: 0 0 20px 0;
     }
     
     .hero h1 {
@@ -929,34 +944,68 @@ body {
         margin: 15px 0;
     }
     
-    /* Проблема 3 и 4: чекбоксы в формах вакансий и "Продать нам" */
-    .form-group label[for="vacancy-agreement"],
-    .form-group label[for="sell-agreement"],
-    .form-group label[for="order-agreement"] {
-        display: block;
-        font-size: 0.9em;
-        margin-bottom: 10px;
+    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2: Чекбоксы в формах контактов */
+    .form-group label[for="contact-agreement"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
     
-    .form-group label[for="vacancy-agreement"] input,
-    .form-group label[for="sell-agreement"] input,
-    .form-group label[for="order-agreement"] input {
-        width: auto;
+    .form-group label[for="contact-agreement"] input {
+        order: 2;
         margin-top: 10px;
-        display: block;
+        align-self: center;
     }
     
-    /* Проблема 6: чекбокс на странице оформления заказа - ПЕРЕМЕЩАЕМ СНИЗУ ОТ ТЕКСТА */
+    .form-group label[for="contact-agreement"] span {
+        order: 1;
+        width: 100%;
+    }
+    
+    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 3 и 4: Избранное */
+    #favorites-actions {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    
+    #favorites-actions > div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    #favorites-actions button {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Убираем горизонтальный скролл */
+    .products-grid {
+        overflow-x: hidden;
+    }
+    
+    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 5: Чекбокс в заказе */
     .checkout-grid .form-group label[for="order-agreement"] {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
     
     .checkout-grid .form-group label[for="order-agreement"] input {
         order: 2;
         margin-top: 10px;
-        align-self: flex-start;
+        align-self: center;
     }
     
     .checkout-grid .form-group label[for="order-agreement"] span {
@@ -964,38 +1013,37 @@ body {
         width: 100%;
     }
     
-    /* Проблема 5: исправление горизонтального скролла в избранном */
-    .main-content {
-        width: 100vw;
-        overflow-x: hidden;
+    /* Вакансии и продать технику */
+    .form-group label[for="vacancy-agreement"],
+    .form-group label[for="sell-agreement"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
     
-    .products-grid {
+    .form-group label[for="vacancy-agreement"] input,
+    .form-group label[for="sell-agreement"] input {
+        order: 2;
+        margin-top: 10px;
+        align-self: center;
+    }
+    
+    /* Исправления для избранного на мобильных - ПРОБЛЕМА 3 */
+    #favorites-empty,
+    #favorites-actions {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-    }
-    
-    #favorites-actions {
-        width: calc(100vw - 40px);
-        margin-left: -15px;
-        margin-right: -15px;
-        padding: 15px;
-    }
-    
-    /* Исправления для избранного на мобильных */
-    #favorites-actions {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    #favorites-actions > div {
-        text-align: center;
+        transform: none;
     }
     
     /* Исправления для формы заказа на мобильных */
     .product-detail-container {
         padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .product-main-info {
@@ -1003,37 +1051,20 @@ body {
         gap: 20px;
     }
     
-    /* Корзина на мобильных - исправление кнопок количества */
+    /* Корзина на мобильных */
     .cart-item {
         flex-direction: column;
-        gap: 10px !important;
+        gap: 15px !important;
+        width: 100%;
     }
     
     .cart-item > div:first-child {
         text-align: center;
+        width: 100%;
     }
     
     .cart-item > div:nth-child(2) {
         width: 100%;
-    }
-    
-    /* Исправление отображения кнопок количества в корзине */
-    .cart-item .product-price-detail {
-        text-align: right;
-        margin-top: 10px;
-    }
-    
-    /* Исправление конфликта кнопок и суммы в корзине */
-    .cart-item > div:nth-child(2) > div:last-child {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start !important;
-    }
-    
-    .cart-item > div:nth-child(2) > div:last-child > div:first-child {
-        display: flex;
-        gap: 10px;
-        align-items: center;
     }
 }
 

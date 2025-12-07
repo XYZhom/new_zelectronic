@@ -106,7 +106,7 @@
             
             <h1 class="section-title">Избранное</h1>
             
-            <div id="favorites-empty" style="text-align: center; padding: 60px 20px; display: none;">
+            <div id="favorites-empty" style="text-align: center; padding: 60px 20px; display: none; width: 100%;">
                 <i class="far fa-heart fa-4x" style="color: #ddd; margin-bottom: 20px;"></i>
                 <h3 style="color: #666; margin-bottom: 15px;">В избранном пока пусто</h3>
                 <p style="color: #888; margin-bottom: 30px; max-width: 400px; margin: 0 auto 30px;">
@@ -117,7 +117,7 @@
                 </a>
             </div>
             
-            <div class="products-grid" id="favorites-products">
+            <div class="products-grid" id="favorites-products" style="width: 100%;">
                 <!-- Товары будут загружены через JavaScript -->
             </div>
             
@@ -126,13 +126,14 @@
                 <p>Загрузка избранного...</p>
             </div>
             
-            <div id="favorites-actions" style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow); display: none;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
+            <!-- ИСПРАВЛЕНИЕ ПРОБЛЕМ 3 и 4: Убрали горизонтальный скролл и исправили смещение -->
+            <div id="favorites-actions" style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow); display: none; width: 100%; box-sizing: border-box;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 250px;">
                         <h3 style="margin-bottom: 10px;">Выбрано товаров: <span id="favorites-count">0</span></h3>
                         <p style="color: #666;">Общая сумма: <span id="favorites-total">0</span> ₽</p>
                     </div>
-                    <button class="buy-btn" style="max-width: 250px;" onclick="addAllToCart()">
+                    <button class="buy-btn" style="max-width: 250px; min-width: 200px;" onclick="addAllToCart()">
                         <i class="fas fa-shopping-cart"></i> Добавить все в корзину
                     </button>
                 </div>
