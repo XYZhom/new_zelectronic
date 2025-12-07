@@ -1,4 +1,4 @@
-/* style.css - исправленная версия с адаптивным хедером без гамбургера */
+/* style.css - исправленная версия */
 
 :root {
     --primary-color: #2c3e50;
@@ -35,7 +35,7 @@ body {
     width: 100%;
 }
 
-/* Header Styles - адаптивный без гамбургера */
+/* Header Styles - ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 1 */
 .main-header {
     background-color: white;
     box-shadow: var(--shadow);
@@ -211,27 +211,34 @@ body {
     font-weight: 600;
 }
 
-/* Основная навигация по категориям */
+/* Основная навигация по категориям - ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 1: центрирование */
 .main-navigation {
     background: white;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center; /* Центрируем навигацию */
+    width: 100%;
 }
 
 .nav-links {
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* Центрируем ссылки */
     padding: 15px 0;
     min-width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-links a {
     flex-shrink: 0;
     white-space: nowrap;
+    text-align: center;
 }
 
 /* Product Grid */
@@ -578,7 +585,7 @@ body {
     font-size: 28px;
 }
 
-/* Filters - ИСПРАВЛЕНА ПРОБЛЕМА 1 */
+/* Filters */
 .filters-panel {
     background: white;
     padding: 20px;
@@ -586,8 +593,8 @@ body {
     box-shadow: var(--shadow);
     margin-bottom: 30px;
     width: 100%;
-    overflow-x: visible;
-    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .filters-grid {
@@ -596,14 +603,12 @@ body {
     gap: 20px;
     align-items: end;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .filter-group {
     display: flex;
     flex-direction: column;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .filter-group label {
@@ -615,8 +620,6 @@ body {
 
 .filter-select, .price-input {
     width: 100%;
-    box-sizing: border-box;
-    max-width: 100%;
 }
 
 /* Page content */
@@ -709,6 +712,90 @@ body {
     margin: 0 auto 30px;
 }
 
+/* Стили для центрирования текста обработки данных - ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 1 */
+.centered-agreement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.centered-agreement span {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.centered-agreement input[type="checkbox"] {
+    align-self: center;
+    margin-top: 10px;
+}
+
+/* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2: Мобильная навигация для страницы Избранное */
+@media (max-width: 768px) {
+    .main-navigation {
+        padding: 0 15px;
+        margin: 0 -15px;
+        width: calc(100% + 30px);
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    
+    .nav-links {
+        justify-content: flex-start;
+        padding: 10px 15px;
+        margin: 0 -15px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondary-color) #f1f1f1;
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .nav-links::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 2px;
+    }
+    
+    .nav-links::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
+        border-radius: 2px;
+    }
+    
+    /* Гарантируем одинаковое поведение для всех страниц */
+    .main-header .container {
+        padding: 0;
+    }
+    
+    .nav-content {
+        padding: 10px 15px;
+    }
+    
+    /* Исправление для избранного */
+    #favorites-actions {
+        margin: 20px 0;
+        padding: 20px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    
+    /* Убираем горизонтальный скролл на странице избранного */
+    #favorites-products {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
+
 /* ========== МОБИЛЬНАЯ АДАПТАЦИЯ ========== */
 
 /* Планшет (до 1024px) */
@@ -752,7 +839,7 @@ body {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
-        padding: 10px 0;
+        padding: 10px 15px;
     }
     
     /* Логотип и действия пользователя в одной строке */
@@ -806,14 +893,16 @@ body {
         font-size: 14px;
     }
     
-    /* Навигация по категориям */
+    /* Навигация по категориям - ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2 */
     .main-navigation {
         order: 3;
         border: none;
         margin: 0;
-        padding: 0;
+        padding: 0 15px;
         width: 100%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
     }
     
     .nav-links {
@@ -821,11 +910,15 @@ body {
         padding: 10px 0;
         width: max-content;
         min-width: 100%;
+        justify-content: flex-start;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
     .nav-links a {
         font-size: 14px;
         padding: 8px 0;
+        flex-shrink: 0;
     }
     
     /* Товары */
@@ -867,9 +960,9 @@ body {
         box-sizing: border-box;
     }
     
-    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 1: Фильтры в каталоге */
+    /* Фильтры в каталоге */
     .filters-panel {
-        overflow-x: visible;
+        overflow-x: auto;
         padding: 15px;
         width: 100%;
         margin-left: 0;
@@ -944,8 +1037,17 @@ body {
         margin: 15px 0;
     }
     
-    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2: Чекбоксы в формах контактов */
-    .form-group label[for="contact-agreement"] {
+    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2: Чекбоксы в формах */
+    .form-group.centered-agreement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    .form-group.centered-agreement label {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -953,117 +1055,14 @@ body {
         gap: 10px;
     }
     
-    .form-group label[for="contact-agreement"] input {
+    .form-group.centered-agreement input {
         order: 2;
         margin-top: 10px;
         align-self: center;
     }
     
-    .form-group label[for="contact-agreement"] span {
+    .form-group.centered-agreement span {
         order: 1;
-        width: 100%;
-    }
-    
-    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 3 и 4: Избранное */
-    #favorites-actions {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 20px;
-        box-sizing: border-box;
-        position: relative;
-        left: 0;
-        right: 0;
-    }
-    
-    #favorites-actions > div {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    #favorites-actions button {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Убираем горизонтальный скролл */
-    .products-grid {
-        overflow-x: hidden;
-    }
-    
-    /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 5: Чекбокс в заказе */
-    .checkout-grid .form-group label[for="order-agreement"] {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .checkout-grid .form-group label[for="order-agreement"] input {
-        order: 2;
-        margin-top: 10px;
-        align-self: center;
-    }
-    
-    .checkout-grid .form-group label[for="order-agreement"] span {
-        order: 1;
-        width: 100%;
-    }
-    
-    /* Вакансии и продать технику */
-    .form-group label[for="vacancy-agreement"],
-    .form-group label[for="sell-agreement"] {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .form-group label[for="vacancy-agreement"] input,
-    .form-group label[for="sell-agreement"] input {
-        order: 2;
-        margin-top: 10px;
-        align-self: center;
-    }
-    
-    /* Исправления для избранного на мобильных - ПРОБЛЕМА 3 */
-    #favorites-empty,
-    #favorites-actions {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        transform: none;
-    }
-    
-    /* Исправления для формы заказа на мобильных */
-    .product-detail-container {
-        padding: 15px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .product-main-info {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    /* Корзина на мобильных */
-    .cart-item {
-        flex-direction: column;
-        gap: 15px !important;
-        width: 100%;
-    }
-    
-    .cart-item > div:first-child {
-        text-align: center;
-        width: 100%;
-    }
-    
-    .cart-item > div:nth-child(2) {
         width: 100%;
     }
 }
@@ -1072,7 +1071,7 @@ body {
 @media (max-width: 480px) {
     .nav-content {
         gap: 8px;
-        padding: 8px 0;
+        padding: 8px 15px;
     }
     
     .logo {
@@ -1100,6 +1099,8 @@ body {
     
     .nav-links {
         gap: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
     .nav-links a {
@@ -1128,18 +1129,6 @@ body {
     
     .product-image {
         height: 160px;
-    }
-    
-    /* Исправление для страницы оформления заказа на очень маленьких экранах */
-    .product-detail-container {
-        padding: 10px;
-    }
-    
-    /* Исправление для избранного на очень маленьких экранах */
-    #favorites-count,
-    #favorites-total {
-        display: block;
-        margin-top: 5px;
     }
 }
 
