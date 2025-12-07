@@ -6,6 +6,109 @@
     <title>Избранное - ZELECTRONIC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Дополнительные стили для страницы избранного */
+        .favorites-container {
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        
+        #favorites-empty {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        
+        #favorites-products {
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        
+        /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 3 и 4: Убрали горизонтальный скролл и исправили смещение */
+        #favorites-actions {
+            margin: 40px auto;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        
+        #favorites-actions > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        #favorites-actions button {
+            max-width: 100%;
+            min-width: 200px;
+        }
+        
+        /* Мобильная адаптация для страницы избранного */
+        @media (max-width: 768px) {
+            .favorites-container {
+                padding: 0 15px;
+            }
+            
+            #favorites-empty {
+                padding: 40px 15px;
+                width: 100%;
+            }
+            
+            #favorites-products {
+                padding: 0;
+                width: 100%;
+            }
+            
+            #favorites-actions {
+                margin: 20px 0;
+                padding: 20px 15px;
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+            }
+            
+            #favorites-actions > div {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            #favorites-actions button {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            /* ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2: Навигация по категориям как на других страницах */
+            .main-navigation {
+                padding: 0 15px !important;
+                margin: 0 -15px !important;
+                width: calc(100% + 30px) !important;
+            }
+            
+            .nav-links {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin: 0 -15px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -68,10 +171,10 @@
 </div>
         </div>
         
-        <!-- Обновленная навигация с классом main-navigation -->
+        <!-- Обновленная навигация с классом main-navigation - ИСПРАВЛЕНИЕ ПРОБЛЕМЫ 2 -->
         <nav class="main-navigation">
             <div class="nav-links">
-                <a href="index.html" class="nav-link active">
+                <a href="index.html" class="nav-link">
                     <i class="fas fa-home"></i> Главная
                 </a>
                 <a href="catalog.html?category=notebooks" class="nav-link">
@@ -99,7 +202,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="container favorites-container">
             <div class="breadcrumbs">
                 <a href="index.html">Главная</a> / <span>Избранное</span>
             </div>
@@ -127,13 +230,13 @@
             </div>
             
             <!-- ИСПРАВЛЕНИЕ ПРОБЛЕМ 3 и 4: Убрали горизонтальный скролл и исправили смещение -->
-            <div id="favorites-actions" style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow); display: none; width: 100%; box-sizing: border-box;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div id="favorites-actions" style="display: none;">
+                <div>
                     <div style="flex: 1; min-width: 250px;">
                         <h3 style="margin-bottom: 10px;">Выбрано товаров: <span id="favorites-count">0</span></h3>
                         <p style="color: #666;">Общая сумма: <span id="favorites-total">0</span> ₽</p>
                     </div>
-                    <button class="buy-btn" style="max-width: 250px; min-width: 200px;" onclick="addAllToCart()">
+                    <button class="buy-btn" onclick="addAllToCart()">
                         <i class="fas fa-shopping-cart"></i> Добавить все в корзину
                     </button>
                 </div>
